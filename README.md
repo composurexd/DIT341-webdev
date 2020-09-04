@@ -1,8 +1,3 @@
-# System Description
-
-The system is designed to assist traveling employees to keep an eye on their spent expenses. This should make it easier for the company to keep record of what the employees travel and living costs are, allowing for a more transparent reimbursement. 
-
-
 # Backend and Frontend Template
 
 Latest version: https://git.ita.chalmers.se/courses/dit341/group-00-web (public Github [mirror](https://github.com/dit341/group-00-web))
@@ -66,12 +61,18 @@ Open the `server` and `client` in separate VSCode workspaces or open the combine
 
 ### Purpose
 
-2-5 sentences describing what the system does
+The system is designed to assist traveling employees to keep an eye on their spent expenses. This should make it easier for the company to keep record of what the employees travel and living costs are, allowing for a more transparent reimbursement. 
 
 ### Pages
 
 * Home: 1-3 sentences describing what the page displays and what a user can do
-* Shopping cart: ...
+* Trip Overview: This page is the first page after the home page, allowing users to view all current and past trips. Creating and deleting trips can be done here. Highliting one of the trips, and clicking edit will lead you to the "Trip Edit page". Furtheremore one can edit ones User profile/password...
+* Trip Edit: One can edit all of the trips details, plus add/edit and delete users and expences. highliting a expence will lead to the "Expence Edit" page.
+* Expense Edit: This page will open when a user wants to edit/add a expence to a trip. This page will not be accessable until a trip has been selected.
+* Employee Overview: This page shows all employees. This is only visible to a user with Company/admin rights, as it allows the edit of all users, and an overview of users expences. if one is a company/admin, one will be given an extra button on the "Overview of all Trips" page (first page after login) called "View Employees" were one can navigate to this Employee Overview page.
+* Employee Edit: Here employees and admins can edit a users profile, and recieve extra info on the employees details - including trips, and expences on different trips.
+* Register Employee: This page allows people to create new employees. An employee needs to sellect a company, and therefore cannot save the registration if they do not select a company.
+* Register Company: This page allows users to create new companies. This will allow employees to add this company as their actual company. Switching companies is not supportet, a new ID and user would need to be created to switch companies. This allows the old company to keep records of past expences of past employees.
 
 ### Entity-Relationship (ER) Diagram
 
