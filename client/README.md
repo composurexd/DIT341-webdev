@@ -1,3 +1,8 @@
+# System Description
+
+The system is designed to assist traveling employees to keep an eye on their spent expenses. This should make it easier for the company to keep record of what the employees travel and living costs are, allowing for a more transparent reimbursement. 
+
+
 # Client – Vue.js Frontend
 
 This [Vue.js](https://vuejs.org/) template provides sample code how to connect to the ExpressJS backend.
