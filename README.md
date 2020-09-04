@@ -65,7 +65,7 @@ The system is designed to assist traveling employees to keep an eye on their spe
 
 ### Pages
 
-* Home: 1-3 sentences describing what the page displays and what a user can do
+* Login: Employees and companies can login.
 * Trip Overview: This page is the first page after the home page, allowing users to view all current and past trips. Creating and deleting trips can be done here. Highliting one of the trips, and clicking edit will lead you to the "Trip Edit page". Furtheremore one can edit ones User profile/password...
 * Trip Edit: One can edit all of the trips details, plus add/edit and delete users and expences. highliting a expence will lead to the "Expence Edit" page.
 * Expense Edit: This page will open when a user wants to edit/add a expence to a trip. This page will not be accessable until a trip has been selected.
