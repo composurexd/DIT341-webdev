@@ -38,7 +38,7 @@ const trip = new Schema({
     employees: [],
     //company: company.name,
    // expenses: expenses.ID
-
+    //THIS IS A TEST
 })
 
 const expenses = new Schema({
