@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var http = require("http");
 http.createServer(function(request, response) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end(comp1.name);
+    response.end(comp1.employees[0].lname); //THIS IS A TEST
 }).listen(8000);
 
 
