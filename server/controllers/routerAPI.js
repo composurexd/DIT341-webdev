@@ -1,10 +1,17 @@
 const companyHandler = require("./companyHandler");
 const employeeHandler = require("./employeeHandler");
-const expencesHandler = require("./expencesHandler");
+const expenceHandler = require("./expenceHandler");
 const tripHandler = require("./tripsHandler");
-const router = express.router();
+const express = require("express");
 
-router.use("/")
+const router = express.Router();
+
+//router.use("/company",companyHandler);
+router.use("/employee",employeeHandler);
+//router.use("/expence",expenceHandler);
+//router.use("/trip",tripHandler);
+
+module.exports = router;
 
 
 

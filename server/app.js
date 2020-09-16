@@ -5,6 +5,7 @@ var morgan = require('morgan');
 var path = require('path');
 var cors = require('cors');
 var history = require('connect-history-api-fallback');
+var routerAPI = require("./controllers/routerAPI");
 
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/animalDevelopmentDB';
@@ -30,8 +31,14 @@ app.use(morgan('dev'));
 app.options('*', cors());
 app.use(cors());
 
+
+app.post("/fuknuts",function(req, res) {
+    res.json({'message': 'WE ARE HOPELESSLY LOST - PLZ PRAY FOR THE CACHULU!!'});
+});
+
+app.use("/api",routerAPI);
 // Import routes
-app.get('', function(req, res) {
+app.get('/api', function(req, res) {
     res.json({'message': 'Welcome to your DIT341 backend ExpressJS project!'});
 });
 
