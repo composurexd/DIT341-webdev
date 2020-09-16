@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-//var db = mongoose.connect("mongodb://localhost:27017/",{ useNewUrlParse: true}); //host of server
 
 //define mogo camel chema
 var employeeSchema = new Schema({
@@ -15,3 +14,5 @@ var employeeSchema = new Schema({
 
 //Complie model from schema
 var Employee = mongoose.model("employees", employeeSchema);
+
+module.exports = Employee;

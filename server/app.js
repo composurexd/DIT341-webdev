@@ -7,6 +7,7 @@ var cors = require('cors');
 var history = require('connect-history-api-fallback');
 var routerAPI = require("./controllers/routerAPI");
 
+
 // Variables
 var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/animalDevelopmentDB';
 var port = process.env.PORT || 3000;
@@ -31,10 +32,6 @@ app.use(morgan('dev'));
 app.options('*', cors());
 app.use(cors());
 
-
-app.post("/fuknuts",function(req, res) {
-    res.json({'message': 'WE ARE HOPELESSLY LOST - PLZ PRAY FOR THE CACHULU!!'});
-});
 
 app.use("/api",routerAPI);
 // Import routes
