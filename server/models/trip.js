@@ -7,7 +7,10 @@ var tripSchema = new Schema({
     date: {type: Date, default: Date.now, require:true},
     budget: {type: Number, required: true, default: 0},
     expense: [{type: Schema.Types.ObjectId, ref:"expense"}]
+<<<<<<< HEAD
 
+=======
+>>>>>>> cc223badfb0a815224fd1aaace9ea7562dc7aa5f
 })
 
 var Trip = mongoose.model("trips", tripSchema);
