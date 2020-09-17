@@ -14,8 +14,20 @@ router.post("/",function(req,res,next){
             {return console.log(err);}
         res.status(201).json(trip);
     })
-
 });
+
+
+router.post("/expense", function(req, res, next) {
+    var id = req.params.id;
+    Trip.findById(id).populate('expense').
+    exec(function (err, trip) {
+        if (err) return handleError(err);
+        console.log("Expense of this trip is ${Trip.expense.description}",);
+        res.json(trip);
+    });
+});
+
+
 router.get('/', function(req, res, next) {
     Trip.find(function(err, trips) {
         if (err) { return next(err); }
@@ -54,7 +66,7 @@ router.put('/:id', function(req, res, next) {
 // Partially update the trip with the given ID
 router.patch('/:id', function(req, res, next) {
     var id = req.params.id;
-    Trip.findById(id, function(err, camel) {
+    Trip.findById(id, function(err, trip) {
         if (err) { return next(err); }
         if (trip == null) {
             return res.status(404).json({"message": "Trip not found"});
