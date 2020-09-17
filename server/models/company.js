@@ -7,6 +7,8 @@ var companySchema = new Schema({
     location: {type: String},
     userName: {type: String},
     userPass: {type: String},
+    employees: [{type: Schema.Types.ObjectId, ref:"employee"}],
+    trip : [{type: Schema.Types.ObjectId, ref:"trip"}]
 });
 
 var Company = mongoose.model("company", companySchema);
