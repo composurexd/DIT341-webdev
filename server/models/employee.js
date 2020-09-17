@@ -5,11 +5,10 @@ var Schema = mongoose.Schema;
 var employeeSchema = new Schema({
     fname: {type: String },
     lname:  {type: String },
-    //ID:     String,
     birthday: {type: String },
     userName: {type: String },
     userPass: {type: String },
-    companyName: {type: String }
+    company: {type: Schema.Types.ObjectId, ref:"company"}
 });
 
 //Complie model from schema
