@@ -1,0 +1,103 @@
+var mongoose = require('mongoose');
+const express = require("express");
+const Expense = require("../models/expense");
+const Trip = require("../models/trip");
+//const app = require("../app");
+
+const router = new express.Router();
+
+
+//create new expense
+router.post("/",function(req,res,next){
+    var expense = new Expense(req.body);
+    expense.save(function(err){
+        if(err)
+            {return console.log(err);}
+        res.status(201).json(expense);
+    })
+
+});
+router.get('/', function(req, res, next) {
+    Expense.find(function(err, expenses) {
+        if (err) { return next(err); }
+        res.json({"expenses": expenses});
+    });
+});
+
+router.get('/:id', function(req, res, next) {
+    var id = req.params.id;
+    Expense.findById(req.params.id, function(err, expense) {
+        if (err) { return next(err); }
+        if (expense == null) {
+            return res.status(404).json({"message": "Expense not found"});
+        }
+        res.json(expense);
+    });
+});
+
+router.put('/:id', function(req, res, next) {
+    var id = req.params.id;
+    Expense.findById(id, function(err, expense) {
+        if (err) { return next(err); }
+        if (expense == null) {
+            return res.status(404).json({"message": "Expense not found"});
+        }
+        expense.price = req.body.price;
+        expense.location = req.body.location;
+        expense.description = req.body.description;
+        expense.date = req.body.date;
+        expense.trip = req.body.trip;
+        expense.save();
+        res.json(expense);
+    });
+});
+
+// Partially update the expense with the given ID
+router.patch('/:id', function(req, res, next) {
+    var id = req.params.id;
+    Expense.findById(id, function(err, camel) {
+        if (err) { return next(err); }
+        if (expense == null) {
+            return res.status(404).json({"message": "Expense not found"});
+        }  
+        expense.price = req.body.price;
+        expense.location = req.body.location;
+        expense.description = req.body.description;
+        expense.date = req.body.date;
+        expense.trip = req.body.trip;
+        expense.save();
+        res.json(expense);
+    });
+});
+
+// Delete the Employee with the given ID
+router.delete('/:id', function(req, res, next) {
+    var id = req.params.id;
+    Expense.findOneAndDelete({_id: id}, function(err, expense) {
+        if (err) { return next(err); }
+        if (expense == null) {
+            return res.status(404).json({"message": "Expense not found"});
+        }
+        res.json(expense);
+    });
+});
+
+// Delete all employees
+router.delete('/', function(req, res, next) {
+    Expense.deleteMany({}, function(err, expense) {
+        if (err) { return next(err); }
+        if (expense == null) {
+            return res.status(404).json({"message": "Expense not found"});
+        }
+        res.json(expense);
+    });
+});
+
+
+
+module.exports = router;
+
+
+
+
+

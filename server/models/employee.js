@@ -1,18 +1,17 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-//define mogo camel chema
+//define employee  chema
 var employeeSchema = new Schema({
     fname: {type: String },
     lname:  {type: String },
-    //ID:     String,
     birthday: {type: String },
     userName: {type: String },
     userPass: {type: String },
-    companyName: {type: String }
+    company: {type: Schema.Types.ObjectId, ref:"company"}
 });
 
-//Complie model from schema
+//compile model from schema
 var Employee = mongoose.model("employees", employeeSchema);
 
 module.exports = Employee;
