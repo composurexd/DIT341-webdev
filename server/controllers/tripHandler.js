@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 const express = require("express");
-//const Expense = require("../models/expense");
+const Expense = require("../models/expense");
 const Trip = require("../models/trip");
+const { json } = require('body-parser');
 
 const router = new express.Router();
 
@@ -54,7 +55,7 @@ router.put('/:id', function(req, res, next) {
 // Partially update the trip with the given ID
 router.patch('/:id', function(req, res, next) {
     var id = req.params.id;
-    Trip.findById(id, function(err, camel) {
+    Trip.findById(id, function(err, trip) {
         if (err) { return next(err); }
         if (trip == null) {
             return res.status(404).json({"message": "Trip not found"});
@@ -89,6 +90,17 @@ router.delete('/', function(req, res, next) {
             return res.status(404).json({"message": "Trip not found"});
         }
         res.json(trip);
+    });
+});
+
+router.post("/expense", function(req, res, next) {
+  //  var id = req.params.id;
+    Trip.findById(id).populate('expense').
+    exec(function (err, trip) {
+        if (err) return handleError(err);
+        console.log("Expense of this trip is ${Trip.expense.description}",);
+        res.json(trip);
+
     });
 });
 

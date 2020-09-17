@@ -3,10 +3,12 @@ var Schema = mongoose.Schema;
 
 //define schema of company
 var companySchema = new Schema({
-    name: {type: String},
-    location: {type: String},
-    userName: {type: String},
-    userPass: {type: String},
+    name: {type: String, require:true, default: "NULL Name"},
+    location: {type: String, require:true, default: "NULL Location"},
+    userName: {type: String, require:true, default: "NULL userName"},
+    userPass: {type: String, require:true, default: "NULL userPW"},
+    employees: [{type: Schema.Types.ObjectId, ref:"employee"}],
+    trip : [{type: Schema.Types.ObjectId, ref:"trip"}]
 });
 
 var Company = mongoose.model("company", companySchema);
