@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var employeeSchema = new Schema({
     fname: {type: String },
     lname:  {type: String },
-    birthday: {type: String },
+    birthday: {type: Date, default: Date.now},
     userName: {type: String },
     userPass: {type: String },
     company: {type: Schema.Types.ObjectId, ref:"company"}
