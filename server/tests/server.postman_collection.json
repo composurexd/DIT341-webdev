@@ -1,17 +1,27 @@
 {
 	"info": {
-		"_postman_id": "f7ee95b5-9cb9-442f-a6a9-42de46138872",
+		"_postman_id": "0baa2bb0-3e46-4fd5-82ba-a8d96db57f86",
 		"name": "server",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "GET /api",
+			"name": "USLESSSSSS",
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b58d92ec-5214-450c-adb0-28e068aa71b9",
+						"id": "216fac53-4304-4165-bee4-cf45931373f5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "303aee36-7a1a-4ffb-912f-fff04d78cb5a",
 						"exec": [
 							""
 						],
@@ -20,21 +30,2140 @@
 				}
 			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Accept",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 0,\r\n    \"location\": \"malta\",\r\n    \"description\": \"lots of pot\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n  \r\n}"
+				},
 				"url": {
-					"raw": "{{host}}/api",
+					"raw": "{{host}}/api/expense",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
-						"api"
+						"api",
+						"expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post company",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4c264b2a-47e0-4f85-bec1-6c66df3b3505",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "44df65fa-771c-470b-8273-c3b55571401c",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyID = jsonData._id;\r",
+							"pm.environment.set(\"company_ID\", companyID);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Valve\",\r\n    \"location\": \"Siatle\",\r\n    \"userName\": \"valve\",\r\n    \"userPass\": \"godGabe\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/company",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post employee",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6898c3a8-a3c8-4148-a236-9fbfd2afea59",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "651c63f9-204d-4cb9-ab40-34738674cee2",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var employeeID = jsonData._id;\r",
+							"pm.environment.set(\"employee_ID\", employeeID);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\": \"johan\",\r\n    \"lname\": \"berg\",\r\n    \"userName\": \"johanneberg\",\r\n    \"userPass\": \"rollercoaster\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/employee",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post expense",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "38a6b605-66e0-464a-9b66-737fe3b61142",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "524923b9-e25b-4b45-9e16-81c48890bb5a",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var expenseID = jsonData._id;\r",
+							"pm.environment.set(\"expense_ID\", expenseID);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 230,\r\n    \"location\": \"malta\",\r\n    \"description\": \"lots of pot\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n  \r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/expense",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post trip",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2138a5bc-c25e-40d9-b3b6-292e1d96a89a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "be55ce98-a874-4373-9c58-09e68148e4b6",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var tripID = jsonData._id;\r",
+							"pm.environment.set(\"trip_ID\", tripID);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5535444d-d331-415b-bcd5-9be0169d784d",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "fuk",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "us",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/company",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9648d037-01be-4706-9688-f4f2b4dbb1ee",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/employee",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get expense",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62867f37-97ae-4733-9d23-5b995af605c0",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/expense",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42a5041b-8b2c-4453-a3f5-b366c9a35796",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get companyByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "268a913d-7437-476d-84e4-7571f1ea7b35",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employeeByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1d6d37c0-d4e3-47b7-9ba6-2e8a77e5c7f3",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee",
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get expenseByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "49f4f2b7-e97b-4204-a6e1-79c5c7a2e2a2",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense",
+						":{{expense_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tripByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fcfc86b5-c0c9-4164-90b6-98eb8ece8950",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get companyByIDs employees",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f9e9eac-649d-4bce-8376-ac941f02a6b3",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}/employees",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}",
+						"employees"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put companyByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e13c71bb-e42c-4063-9265-54636eec93d4",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"DICE\",\r\n    \"location\": \"Sweden\",\r\n    \"userName\": \"bf1942\",\r\n    \"userPass\": \"wasGoodTimes\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put employeeByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c3fa9e1-2f17-4c1c-a2d3-2a300b49df41",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\": \"Quinten\",\r\n    \"lname\": \"Tarrentino\",\r\n    \"userName\": \"QTmovies\",\r\n    \"userPass\": \"FEEEEET\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee",
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put expenseByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "73f2b488-c49e-473e-bf11-577051c1c555",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 329,\r\n    \"location\": \"Mexico\",\r\n    \"description\": \"Restocking Tequilla\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense",
+						":{{expense_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put tripByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f1ba28b7-52b1-4cc3-ac95-da5c128f6c6f",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destination\": \"South Central Sandwitch Islands\",\r\n    \"description\": \"Delivering Mayonees\",\r\n    \"budget\": 203000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch companyByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffaf4ba7-c727-41ba-8af1-6fb3f5a19d65",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Boring Company\",\r\n\r\n    \"userPass\": \"dull\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch employeeByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "53a22caa-3775-4a92-83e6-ff8bafcb14dc",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\": \"johan\",\r\n\r\n    \"userName\": \"nasa\",\r\n\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee",
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch expenseByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f65396cc-b527-4268-bab6-ccb3565be427",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 230000,\r\n    \"description\": \"lots of cheese\",\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense",
+						":{{expense_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch tripByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e61b30bd-874b-4daf-b900-329ee1d5efeb",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destination\": \"South East Central Sandwich Islands\"\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete companyByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46ca9909-7ffb-4815-aa1a-bf40571b90c4",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employeeByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e1e6b5b-95c8-40dc-bb9c-a9848e5fa9d6",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee",
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete expenseByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "673e3b2b-53dd-409f-a6d5-a1e4ce88dafa",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense",
+						":{{expense_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete tripByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a1b1135-f03f-43cb-aa22-678f1e18fec5",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete companyALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "70323386-2dcb-4894-9967-3c9f1921467f",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/company",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employeeALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a9b6bd4-c1a0-4e99-b922-d05b28a1d599",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/employee",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete expenseALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06e747ec-aca7-4247-8e3e-56f5b5b03233",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/expense",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete tripALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68d62f59-be50-4055-ae84-6f33a29ff789",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post trip into company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "967fc211-deca-4b52-bda2-610d2f96fe74",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}",
+						"trip"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post employee into company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c8e0bf97-8933-4d93-9574-dd5ecd6e0851",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\": \"johan\",\r\n    \"lname\": \"berg\",\r\n    \"userName\": \"johanneberg\",\r\n    \"userPass\": \"rollercoaster\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}/employee",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}",
+						"employee"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post trip into employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c867e0a3-dbd0-4770-9cc0-d897daa294e6",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/employee/:{{employee_ID}}/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee",
+						":{{employee_ID}}",
+						"trip"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post company into employee",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3909d972-05fe-4860-984a-c390cab5826d",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Valve\",\r\n    \"location\": \"Siatle\",\r\n    \"userName\": \"valve\",\r\n    \"userPass\": \"godGabe\",\r\n    \"employees\": [\r\n        \"5f6423ffe869f324682803cc\"\r\n    ],\r\n    \"trips\": [],\r\n    \"_id\": \"5f642114f1e0b74d94f77f6e\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/employee/:{{employee_ID}}/company",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employee",
+						":{{employee_ID}}",
+						"company"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post company into employee into trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "28780524-3378-4934-80ce-8a11c671d1de",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\": \"johan\",\r\n    \"lname\": \"berg\",\r\n    \"userName\": \"johanneberg\",\r\n    \"userPass\": \"rollercoaster\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/company/:{{company_ID}}/employee/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"company",
+						":{{company_ID}}",
+						"employee",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						},
+						{
+							"key": "{{trip_ID}}",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post trip into expenses",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e33ad5b-5dc0-4ee1-b94e-7e943da7661a",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/expense/:{{expense_ID}}/trip",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expense",
+						":{{expense_ID}}",
+						"trip"
+					],
+					"variable": [
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post expence into Trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "88a4fbf1-bb5e-4ea6-a057-83f6a8abff41",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var tripIDexpense = jsonData._id;\r",
+							"pm.environment.set(\"trip_IDexpense\", tripIDexpense);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"price\": 230,\r\n    \"location\": \"malta\",\r\n    \"description\": \"lots of pot\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/trip/:{{trip_ID}}/expense",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip",
+						":{{trip_ID}}",
+						"expense"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post employee into trip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ac8941b8-4980-40ff-8bab-b02f41029fdc",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyIDemployee = jsonData._id;\r",
+							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fname\": \"Potato\",\r\n    \"lname\": \"McPotatoFace\",\r\n    \"userName\": \"PPface\",\r\n    \"userPass\": \"potatoMan\",\r\n    \"trips\": [],\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T03:00:42.760Z\"\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/trip/:{{trip_ID}}/employee",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trip",
+						":{{trip_ID}}",
+						"employee"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
 					]
 				}
 			},
@@ -45,7 +2174,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "05864cff-5cba-4070-bac3-a59328954ebf",
+				"id": "669979d1-8cbc-4523-a688-e4d80f7c1834",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -55,7 +2184,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e9c319be-3306-4fc5-ba34-fcf64391213a",
+				"id": "cceeb285-f44c-469d-8509-b1527a48e20a",
 				"type": "text/javascript",
 				"exec": [
 					""
