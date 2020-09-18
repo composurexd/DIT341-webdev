@@ -6,8 +6,7 @@ var expenseSchema = new Schema({
     location: {type: String, require:true, default: "NULL location"},
     description: {type: String, require:true, default: "NULL Discription"},
     date: {type: Date, require:true, default: Date.now},
-    trip: {type: Schema.Types.ObjectId, ref:"trip", require:true}
-
+    trips: [{type: Schema.Types.ObjectId, ref:"trip", require:true}]
 });
 
 var Expense = mongoose.model("expenses", expenseSchema);

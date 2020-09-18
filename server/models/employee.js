@@ -8,7 +8,8 @@ var employeeSchema = new Schema({
     birthday: {type: Date, require:true, default: Date.now},
     userName: {type: String, require:true, default: "NULL userName"},
     userPass: {type: String, require:true, default: "NULL userPW"},
-    company: {type: Schema.Types.ObjectId, ref:"company", require:true}
+    trips: [{type: Schema.Types.ObjectId, ref: "trip"}],
+    companys: [{type: Schema.Types.ObjectId, ref:"company", require:true}]
 });
 
 //compile model from schema

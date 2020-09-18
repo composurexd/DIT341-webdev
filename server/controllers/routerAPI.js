@@ -1,7 +1,7 @@
 const companyHandler = require("./companyHandler");
 const employeeHandler = require("./employeeHandler");
-const expenseHandler = require("./expenseHandler");
 const tripHandler = require("./tripHandler");
+const expenseHandler = require("./expenseHandler");
 const express = require("express");
 
 const router = express.Router();

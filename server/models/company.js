@@ -8,7 +8,7 @@ var companySchema = new Schema({
     userName: {type: String, require:true, default: "NULL userName"},
     userPass: {type: String, require:true, default: "NULL userPW"},
     employees: [{type: Schema.Types.ObjectId, ref:"employee"}],
-    trip : [{type: Schema.Types.ObjectId, ref:"trip"}]
+    trips : [{type: Schema.Types.ObjectId, ref:"trip"}]
 });
 
 var Company = mongoose.model("company", companySchema);

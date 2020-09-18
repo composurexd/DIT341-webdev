@@ -9,7 +9,7 @@ var routerAPI = require("./controllers/routerAPI");
 
 
 // Variables
-var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/animalDevelopmentDB';
+var mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/TripBudgetManager';
 var port = process.env.PORT || 3000;
 
 // Connect to MongoDB

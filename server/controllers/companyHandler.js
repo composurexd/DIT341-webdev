@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 const express = require("express");
 const Company = require("../models/company");
+const Employee= require("../models/employee");
+const Trip    = require("../models/trip");
 
 const router = new express.Router();
 
@@ -16,6 +18,50 @@ router.post("/",function(req,res,next){
     })
 
 });
+
+router.post('/:id/employee', function(req, res, next){
+    var id = req.params.id;
+    Company.findById(id).populate('employee').exec(function(err, company){
+        if (err) { return next(err); }
+        if (company === null) {
+            return res.status(404).json({'message': 'company not found'});
+        };
+        var employee = new Employee(req.body);
+        employee.save();
+        company.employees.push(employee);
+        company.save();
+        res.status(201).json(employee);
+    });
+});
+
+router.post('/:id/trip', function(req, res, next){
+    var id = req.params.id;
+    Company.findById(id).populate('trip').exec(function(err, company){
+        if (err) { return next(err); }
+        if (company === null) {
+            return res.status(404).json({'message': 'trip not found'});
+        };
+        var trip = new Trip(req.body);
+        trip.save();
+        company.trips.push(trip);
+        company.save();
+        res.status(201).json(trip);
+    });
+});
+
+
+//get company/employees (M1, 3b)
+router.get("/:id/employees",function(req,res,next){
+    var id = req.params.id;
+    Company.findById(id, function(err,company){
+        if (err) { return next(err); }
+        if (company == null) {
+            return res.status(404).json({"message": "Company not found"});
+        }
+        res.json(company.employees);
+    });
+});
+
 router.get('/', function(req, res, next) {
     Company.find(function(err, companies) {
         if (err) { return next(err); }
@@ -24,7 +70,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    var id = req.params.id;
     Company.findById(req.params.id, function(err, company) {
         if (err) { return next(err); }
         if (company == null) {
@@ -58,10 +103,10 @@ router.patch('/:id', function(req, res, next) {
         if (company == null) {
             return res.status(404).json({"message": "Company not found"});
         }
-        company.name = req.body.name;
-        company.location = req.body.location;
-        company.userName = req.body.userName;
-        company.userPass = req.body.userPass;
+        if (req.body.name) {company.name = req.body.name;}
+        if (req.body.location) {company.location = req.body.location;}
+        if (req.body.userName) {company.userName = req.body.userName;}
+        if (req.body.userPass) {company.userPass = req.body.userPass;}
         company.save();
         res.json(company);  
     });
@@ -70,7 +115,7 @@ router.patch('/:id', function(req, res, next) {
 // Delete the Employee with the given ID
 router.delete('/:id', function(req, res, next) {
     var id = req.params.id;
-    Company.findOneAndDelete({_id: id}, function(err, companies) {
+    Company.findOneAndDelete({_id: id}, function(err, company) {
         if (err) { return next(err); }
         if (company == null) {
             return res.status(404).json({"message": "Company not found"});
@@ -89,6 +134,9 @@ router.delete('/', function(req, res, next) {
         res.json(company);
     });
 });
+
+
+
 
 
 
