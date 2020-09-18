@@ -129,6 +129,17 @@ router.delete('/', function(req, res, next) {
     });
 });
 
+router.post("/expense", function(req, res, next) {
+  //  var id = req.params.id;
+    Trip.findById(id).populate('expense').
+    exec(function (err, trip) {
+        if (err) return handleError(err);
+        console.log("Expense of this trip is ${Trip.expense.description}",);
+        res.json(trip);
+
+    });
+});
+
 
 
 module.exports = router;
