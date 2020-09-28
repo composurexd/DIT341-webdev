@@ -39,7 +39,7 @@ router.post('/:id/trip', function(req, res, next){
     Company.findById(id).populate('trip').exec(function(err, company){
         if (err) { return next(err); }
         if (company === null) {
-            return res.status(404).json({'message': 'trip not found'});
+            return res.status(404).json({'message': 'Company not found'});
         };
         var trip = new Trip(req.body);
         trip.save();
@@ -72,13 +72,57 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     Company.findById(req.params.id, function(err, company) {
         if (err) { return next(err); }
-        if (company == null) {
+        if (company === null) {
             return res.status(404).json({"message": "Company not found"});
         }
         res.json(company);
     });
 });
 
+//get employeeByID from CompanyByID-employee-Array
+router.get("/:companyID/employees/:employeeID", function(req,res,next){
+    var compID = req.params.companyID;
+    var emplID = req.params.employeeID;
+    Company.findById(compID,function(err,company){
+        if(err){return next(err);}
+        if(company===null){
+            return res.status(404).json({"message":"Company not found"});
+        }
+        Employee.findById(emplID,function(err,employee){
+            if(err){return next(err);}
+            if(employee===null){
+                return res.status(404).json({"message":"Employee (in company) not found "});
+            }
+            res.json(employee);
+        });
+    });
+});
+//delete employeeById from CompanyByID-employees-ary
+router.delete("/:companyID/employees/:employeeID", function(req,res,next){
+    var compID = req.params.companyID;
+    var emplID = req.params.employeeID;
+    Company.findById(compID,function(err,company){
+        if(err){return next(err);}
+        if(company===null){
+            return res.status(404).json({"message":"Company not found"});
+        }
+        Employee.findOneAndDelete(emplID,function(err,employee){
+            if(err){return next(err);}
+            if(employee===null){
+                return res.status(404).json({"message":"Employee (in company) not found "});
+            }
+            //TODO: DELETE THE EMPLOYEE OUT OF THE COMPANY EMPLOYEEarray???? (CHECK OTHER DELETES IF IT ACTUALLY TAKES IT OUT OF THE ARRAYs...)
+            company.findOneAndDelete(emplID, function(err,employee){
+                if(err){return next(err);}
+                if(employee===null){
+                    return res.status(404).json({"message":"employee could not be deleted in company"});
+                }
+                
+            });
+            res.json(employee);
+        });
+    });
+});
 router.put('/:id', function(req, res, next) {
     var id = req.params.id;
     Company.findById(id, function(err, company) {
