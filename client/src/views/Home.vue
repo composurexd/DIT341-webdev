@@ -28,6 +28,15 @@ export default {
         .catch(error => {
           this.message = error
         })
+    },
+    getEmployees(){
+      employeeHandler.get("/")
+        .then(response => {
+          this.message = response.data
+      })
+        .catch(error => {
+          this.message = error
+        })
     }
   }
 }
