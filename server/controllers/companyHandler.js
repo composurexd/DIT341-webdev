@@ -97,7 +97,7 @@ router.get("/:companyID/employees/:employeeID", function(req,res,next){
         });
     });
 });
-//delete employeeById from CompanyByID-employees-ary
+//DELETE employeeById from CompanyByID-employees-ary
 router.delete("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;
     var emplID = req.params.employeeID;
