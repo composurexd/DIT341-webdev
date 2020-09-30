@@ -45,3 +45,24 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+h1 {
+  color:coral
+  }
+@media (max-width: 600px) {
+  .detail {
+    color: red;
+    font-size: 16pt;
+    font-weight: bold;
+    /* display: none; */
+  }
+}
+
+@media (min-width: 600px) {
+  .more-info {
+    display: none;
+  }
+}
+
+</style>
