@@ -32,7 +32,6 @@ export default {
   methods: {
     saveEmployee() {
       console.log(document.getElementById('fname').value)
-      
     }
   }
 }
