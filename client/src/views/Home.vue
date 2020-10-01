@@ -29,12 +29,9 @@ export default {
         .then(response => {
           this.whateverIwant = response.data.fname
         })
-<<<<<<< HEAD
-=======
         .catch(error => {
           this.message = error
         })
->>>>>>> 0cd0e025e0c7e2667471c65aaa77502a73c209f1
     }
   }
 }
