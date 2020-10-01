@@ -19,7 +19,7 @@ router.post("/",function(req,res,next){
 
 });
 
-router.post('/:id/employees', function(req, res, next){
+router.post('/:id/employee', function(req, res, next){
     var id = req.params.id;
     Company.findById(id).populate('employee').exec(function(err, company){
         if (err) { return next(err); }
