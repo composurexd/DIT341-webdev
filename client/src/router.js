@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Potato from './views/Potato.vue'
 import EmployeeEdit from './views/EmployeeEdit.vue'
+import EmployeeCreate from './views/EmployeeCreate.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,11 @@ export default new Router({
       name: 'employeeEdit',
       component: EmployeeEdit,
       props: true
+    },
+    {
+      path: '/EmployeeCreate',
+      name: 'employeeCreate',
+      component: EmployeeCreate
     }
   ]
 })

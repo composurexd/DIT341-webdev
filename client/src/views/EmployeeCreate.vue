@@ -1,16 +1,15 @@
 <template>
   <b-list-group>
       <div>
-        <h1> THIS IS THE EMPLOYEE EDIT PAGE</h1>
-        <p>{{employeeObject}}</p>
+        <h1> THIS IS THE EMPLOYEE CREATE PAGE</h1>
         <label for="fname">First Name:</label>
-        <input type="text" id="fname" name="fname" :value= employeeObject.fname><br><br>
+        <input type="text" id="fname" name="fname"><br><br>
         <label for="lname">Last Name:</label>
-        <input type="text" id="lname" name="lname" :value= employeeObject.lname><br><br>
+        <input type="text" id="lname" name="lname"><br><br>
         <label for="userName">User Name:</label>
-        <input type="text" id="userName" name="userName" :value= employeeObject.userName><br><br>
+        <input type="text" id="userName" name="userName"><br><br>
         <label for="userPass">Password:</label>
-        <input type="text" id="userPass" name="userPass" :value= employeeObject.userPass><br><br>
+        <input type="text" id="userPass" name="userPass"><br><br>
         <button @click="saveEmployee()">saveEmployee</button>
       </div>
   </b-list-group>
@@ -18,12 +17,10 @@
 
 <script>
 import { Api } from '@/Api'
-// <input type="submit" value="Submit"> <button @click="saveEmployee(employeeObject._id, fname.value, lname.value, userName.value, userPass.value)">saveEmployee</button>
 
 export default {
-  name: 'employeeEdit',
+  name: 'employeeCreate',
   props: ['employeeObject'],
-
   data() {
     return {
       birdy: {
@@ -42,7 +39,7 @@ export default {
       this.birdy.lname = document.getElementById('lname').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
-      Api.patch('/employee/' + this.employeeObject._id, this.birdy)
+      Api.post('/employee', this.birdy) // TODO: THIS NEEDS TO BECOME A PUT METHOD - SO EMPLOYEE IS DIRECTLY ADDED TO COMPANY
         .then(response => {
           console.log(response.data) // TODO: add proper error handling here and bellow
         })
