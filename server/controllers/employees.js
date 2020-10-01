@@ -75,7 +75,6 @@ router.put('/:id', function(req, res, next) {
         }
         employee.fname = req.body.fname;
         employee.lname = req.body.lname;
-        employee.birthday = req.body.birthday;
         employee.userName = req.body.userName;
         employee.userPass = req.body.userPass;
         employee.company = req.body.company;
@@ -94,7 +93,6 @@ router.patch('/:id', function(req, res, next) {
         }
         if (req.body.fname)     {employee.fname = req.body.fname;}
         if (req.body.lname)     {employee.lname = req.body.lname;}
-        if (req.body.birthday)  {employee.birthday = req.body.birthday;}
         if (req.body.userName)  {employee.userName = req.body.userName;}
         if (req.body.userPass)  {employee.userPass = req.body.userPass;}
         if (req.body.company)   {employee.company = req.body.company;}
