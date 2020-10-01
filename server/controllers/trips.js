@@ -129,7 +129,7 @@ router.delete('/', function(req, res, next) {
     });
 });
 
-router.post("/expense", function(req, res, next) {
+router.post("/expense", function(req, res, next) { //TODO: THIS IS A GET THAT SHOULD BE A POST
   //  var id = req.params.id;
     Trip.findById(id).populate('expense').
     exec(function (err, trip) {
