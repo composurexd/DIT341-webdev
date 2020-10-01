@@ -85,11 +85,6 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-<<<<<<< HEAD:server/controllers/companies.js
-
-=======
-//get employeeByID from CompanyByID-employee-Array //SHOULD PROBOBLY BE IN EMPLOYEE
->>>>>>> 0cd0e025e0c7e2667471c65aaa77502a73c209f1:server/controllers/companyHandler.js
 router.get("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;
     var emplID = req.params.employeeID;
