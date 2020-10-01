@@ -4,6 +4,10 @@
       <router-link to="/">Home</router-link>
       |
       <router-link to="/potato">Potato</router-link>
+      |
+      <router-link to="employeeEdit">EmployeeEdit</router-link>
+      |
+      <router-link to="TripSearching">tripSearching</router-link>
     </div>
     <!-- Render the content of the current page view -->
     <router-view/>
