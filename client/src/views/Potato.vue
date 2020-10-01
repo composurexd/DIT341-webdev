@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-    <li v-for='employee in employees' :key='employee._id'>
-        <aEmployee :employee='employee' />
-    </li>
-  </div>
+  <b-list-group>
+      <div>
+        <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
+        <li v-for='employee in employees' :key='employee._id'>
+            <aEmployee :employee='employee' />
+        </li>
+      </div>
+  </b-list-group>
 </template>
 
 <script>
