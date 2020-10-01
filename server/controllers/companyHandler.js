@@ -50,7 +50,7 @@ router.post('/:id/trip', function(req, res, next){
 });
 
 
-//get company/employees (M1, 3b)
+//get company/employees (M1, 3b) //DOUBLE CHECK END POINT IS ALWAYS PLURAL
 router.get("/:id/employees",function(req,res,next){
     var id = req.params.id;
     Company.findById(id, function(err,company){
@@ -79,7 +79,7 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-//get employeeByID from CompanyByID-employee-Array
+//get employeeByID from CompanyByID-employee-Array //SHOULD PROBOBLY BE IN EMPLOYEE
 router.get("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;
     var emplID = req.params.employeeID;
@@ -91,6 +91,7 @@ router.get("/:companyID/employees/:employeeID", function(req,res,next){
         Employee.findById(emplID,function(err,employee){
             if(err){return next(err);}
             if(employee===null){
+                //if employee.companies is equal to compID
                 return res.status(404).json({"message":"Employee (in company) not found "});
             }
             res.json(employee);

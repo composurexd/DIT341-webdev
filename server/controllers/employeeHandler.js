@@ -48,10 +48,10 @@ router.post('/:id/company', function(req, res, next){
     });
 });
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) { //TODO FIX THIS SHIT res.json({"employees": employees});)
     Employee.find(function(err, employees) {
         if (err) { return next(err); }
-        res.json({"employees": employees});
+        res.status(200).json({"employees": employees});
     });
 });
 

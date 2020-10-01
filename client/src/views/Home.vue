@@ -25,9 +25,9 @@ export default {
   },
   methods: {
     getMessage() {
-      Api.get('/')
+      Api.get('/employee')
         .then(response => {
-          this.message = response.data.message
+          this.whateverIwant = response.data.fname
         })
         .catch(error => {
           this.message = error
