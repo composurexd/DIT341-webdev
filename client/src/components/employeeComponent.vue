@@ -7,9 +7,6 @@
                 </b-col>
 
                 <b-col>
-                    {{employee.birthday}}
-                </b-col>
-                <b-col>
                     User Name: {{employee.userName}}
                 </b-col>
                 <b-col>
