@@ -6,6 +6,8 @@
       <router-link to="/employeeView">EmployeeView</router-link>
       |
       <router-link to="/companyView">CompanyView</router-link>
+      |
+      <router-link to="TripSearching">tripSearching</router-link>
     </div>
     <!-- Render the content of the current page view -->
     <router-view/>

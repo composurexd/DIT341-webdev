@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "0baa2bb0-3e46-4fd5-82ba-a8d96db57f86",
-		"name": "server",
+		"_postman_id": "4f57f8d7-8efb-437c-915a-33478ca0bf9e",
+		"name": "server Copy 2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,7 +11,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4c264b2a-47e0-4f85-bec1-6c66df3b3505",
+						"id": "38aa4d0c-9eb3-4ebb-90dd-1910408b3eb5",
 						"exec": [
 							""
 						],
@@ -21,7 +21,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "44df65fa-771c-470b-8273-c3b55571401c",
+						"id": "313a1515-117b-43a5-a371-216832a3d61a",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyID = jsonData._id;\r",
@@ -54,13 +54,13 @@
 					"raw": "{\r\n    \"name\": \"Valve\",\r\n    \"location\": \"Siatle\",\r\n    \"userName\": \"valve\",\r\n    \"userPass\": \"godGabe\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/company",
+					"raw": "{{host}}/api/companies",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company"
+						"companies"
 					]
 				}
 			},
@@ -72,7 +72,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6898c3a8-a3c8-4148-a236-9fbfd2afea59",
+						"id": "5d6da82f-cfc4-4765-97f0-e90b27693780",
 						"exec": [
 							""
 						],
@@ -82,7 +82,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "651c63f9-204d-4cb9-ab40-34738674cee2",
+						"id": "864f263f-bc93-4c03-a592-e6de613a53b5",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var employeeID = jsonData._id;\r",
@@ -115,13 +115,13 @@
 					"raw": "{\r\n    \"fname\": \"johan\",\r\n    \"lname\": \"berg\",\r\n    \"userName\": \"johanneberg\",\r\n    \"userPass\": \"rollercoaster\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/employee",
+					"raw": "{{host}}/api/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee"
+						"employees"
 					]
 				}
 			},
@@ -133,7 +133,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "38a6b605-66e0-464a-9b66-737fe3b61142",
+						"id": "9d65e600-ab86-4067-8f6e-53271eb6d399",
 						"exec": [
 							""
 						],
@@ -143,7 +143,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "524923b9-e25b-4b45-9e16-81c48890bb5a",
+						"id": "49e6947a-e255-4c39-9fac-3a33cb60d584",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var expenseID = jsonData._id;\r",
@@ -176,13 +176,13 @@
 					"raw": "{\r\n    \"price\": 230,\r\n    \"location\": \"malta\",\r\n    \"description\": \"lots of pot\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n  \r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/expense",
+					"raw": "{{host}}/api/expenses",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense"
+						"expenses"
 					]
 				}
 			},
@@ -194,7 +194,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2138a5bc-c25e-40d9-b3b6-292e1d96a89a",
+						"id": "f8a36a3e-16c9-4246-a225-edaf144e589d",
 						"exec": [
 							""
 						],
@@ -204,7 +204,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "be55ce98-a874-4373-9c58-09e68148e4b6",
+						"id": "53c9a668-b29e-4234-b4dd-5787763a30b7",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var tripID = jsonData._id;\r",
@@ -237,13 +237,13 @@
 					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/trip",
+					"raw": "{{host}}/api/trips",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip"
+						"trips"
 					]
 				}
 			},
@@ -255,7 +255,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5535444d-d331-415b-bcd5-9be0169d784d",
+						"id": "823e4d13-50ce-4e42-a851-0f16ace23128",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -289,13 +289,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/company",
+					"raw": "{{host}}/api/companies",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company"
+						"companies"
 					]
 				}
 			},
@@ -307,7 +307,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9648d037-01be-4706-9688-f4f2b4dbb1ee",
+						"id": "d69200bc-5eb9-4fb0-adb5-3c323d995f37",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -341,13 +341,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/employee",
+					"raw": "{{host}}/api/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee"
+						"employees"
 					]
 				}
 			},
@@ -359,7 +359,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "62867f37-97ae-4733-9d23-5b995af605c0",
+						"id": "9f9ad038-8814-4787-a55b-681461f10973",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -393,13 +393,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/expense",
+					"raw": "{{host}}/api/expenses",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense"
+						"expenses"
 					]
 				}
 			},
@@ -411,7 +411,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "42a5041b-8b2c-4453-a3f5-b366c9a35796",
+						"id": "ded40744-6837-471a-9965-caef8aefb4b3",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -445,13 +445,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/trip",
+					"raw": "{{host}}/api/trips",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip"
+						"trips"
 					]
 				}
 			},
@@ -463,7 +463,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "268a913d-7437-476d-84e4-7571f1ea7b35",
+						"id": "c50d4dff-902c-4b05-b0d5-a8b62d115932",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -497,13 +497,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"raw": "{{host}}/api/companies/:{{company_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}"
 					],
 					"variable": [
@@ -522,7 +522,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1d6d37c0-d4e3-47b7-9ba6-2e8a77e5c7f3",
+						"id": "f8cee3f6-5401-4c30-b404-292f19366217",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -556,13 +556,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee",
+						"employees",
 						":{{employee_ID}}"
 					],
 					"variable": [
@@ -581,7 +581,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "49f4f2b7-e97b-4204-a6e1-79c5c7a2e2a2",
+						"id": "47e37cbc-ce0a-4ce6-a947-07c07b42db6c",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -615,13 +615,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"raw": "{{host}}/api/expenses/:{{expense_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense",
+						"expenses",
 						":{{expense_ID}}"
 					],
 					"variable": [
@@ -640,7 +640,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fcfc86b5-c0c9-4164-90b6-98eb8ece8950",
+						"id": "6c6017cc-feb2-4cca-b4d2-63e76e3ca927",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -674,13 +674,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"raw": "{{host}}/api/trips/:{{trip_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip",
+						"trips",
 						":{{trip_ID}}"
 					],
 					"variable": [
@@ -699,7 +699,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4f9e9eac-649d-4bce-8376-ac941f02a6b3",
+						"id": "a7833161-0b60-4107-825d-ba6ae5373ff2",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -733,13 +733,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}/employees",
+					"raw": "{{host}}/api/companies/:{{company_ID}}/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}",
 						"employees"
 					],
@@ -759,7 +759,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e13c71bb-e42c-4063-9265-54636eec93d4",
+						"id": "4aa3ab89-18f7-4b15-83eb-ad3e7ce1af61",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -790,13 +790,13 @@
 					"raw": "{\r\n    \"name\": \"DICE\",\r\n    \"location\": \"Sweden\",\r\n    \"userName\": \"bf1942\",\r\n    \"userPass\": \"wasGoodTimes\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"raw": "{{host}}/api/companies/:{{company_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}"
 					],
 					"variable": [
@@ -815,7 +815,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1c3fa9e1-2f17-4c1c-a2d3-2a300b49df41",
+						"id": "3a65d28b-6e99-4f9e-96bf-6b2c18d3f577",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -846,13 +846,13 @@
 					"raw": "{\r\n    \"fname\": \"Quinten\",\r\n    \"lname\": \"Tarrentino\",\r\n    \"userName\": \"QTmovies\",\r\n    \"userPass\": \"FEEEEET\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee",
+						"employees",
 						":{{employee_ID}}"
 					],
 					"variable": [
@@ -871,7 +871,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "73f2b488-c49e-473e-bf11-577051c1c555",
+						"id": "e445a213-2b26-4ac4-b8c3-47d68a938aff",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -902,13 +902,13 @@
 					"raw": "{\r\n    \"price\": 329,\r\n    \"location\": \"Mexico\",\r\n    \"description\": \"Restocking Tequilla\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"raw": "{{host}}/api/expenses/:{{expense_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense",
+						"expenses",
 						":{{expense_ID}}"
 					],
 					"variable": [
@@ -927,7 +927,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f1ba28b7-52b1-4cc3-ac95-da5c128f6c6f",
+						"id": "14cb2463-d0ab-4456-9c51-0c821c160e5d",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -958,13 +958,13 @@
 					"raw": "{\r\n    \"destination\": \"South Central Sandwitch Islands\",\r\n    \"description\": \"Delivering Mayonees\",\r\n    \"budget\": 203000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"raw": "{{host}}/api/trips/:{{trip_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip",
+						"trips",
 						":{{trip_ID}}"
 					],
 					"variable": [
@@ -983,7 +983,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ffaf4ba7-c727-41ba-8af1-6fb3f5a19d65",
+						"id": "1079c5c6-d598-4b80-8ef2-c11292a82294",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1014,13 +1014,13 @@
 					"raw": "{\r\n    \"name\": \"Boring Company\",\r\n\r\n    \"userPass\": \"dull\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"raw": "{{host}}/api/companies/:{{company_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}"
 					],
 					"variable": [
@@ -1039,7 +1039,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "53a22caa-3775-4a92-83e6-ff8bafcb14dc",
+						"id": "9b15cff1-258e-4570-a64b-63d4f9a06516",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1070,13 +1070,13 @@
 					"raw": "{\r\n    \"fname\": \"johan\",\r\n\r\n    \"userName\": \"nasa\",\r\n\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee",
+						"employees",
 						":{{employee_ID}}"
 					],
 					"variable": [
@@ -1095,7 +1095,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f65396cc-b527-4268-bab6-ccb3565be427",
+						"id": "9ac592be-f3c0-4143-a42d-72e45d105564",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1126,13 +1126,13 @@
 					"raw": "{\r\n    \"price\": 230000,\r\n    \"description\": \"lots of cheese\",\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"raw": "{{host}}/api/expenses/:{{expense_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense",
+						"expenses",
 						":{{expense_ID}}"
 					],
 					"variable": [
@@ -1151,7 +1151,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e61b30bd-874b-4daf-b900-329ee1d5efeb",
+						"id": "b4971027-bd8a-418d-853d-ae2029ab1ad8",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1182,13 +1182,13 @@
 					"raw": "{\r\n    \"destination\": \"South East Central Sandwich Islands\"\r\n\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"raw": "{{host}}/api/trips/:{{trip_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip",
+						"trips",
 						":{{trip_ID}}"
 					],
 					"variable": [
@@ -1207,7 +1207,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "967fc211-deca-4b52-bda2-610d2f96fe74",
+						"id": "bb3bd938-4389-49d2-a946-252e0a483db7",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyIDemployee = jsonData._id;\r",
@@ -1242,15 +1242,15 @@
 					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}/trip",
+					"raw": "{{host}}/api/companies/:{{company_ID}}/trips",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}",
-						"trip"
+						"trips"
 					],
 					"variable": [
 						{
@@ -1268,7 +1268,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c8e0bf97-8933-4d93-9574-dd5ecd6e0851",
+						"id": "5106b7a0-4ea0-4ebf-a719-29495b3d1607",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyIDemployee = jsonData._id;\r",
@@ -1303,15 +1303,15 @@
 					"raw": "{\r\n    \"fname\": \"johan\",\r\n    \"lname\": \"berg\",\r\n    \"userName\": \"johanneberg\",\r\n    \"userPass\": \"rollercoaster\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}/employee",
+					"raw": "{{host}}/api/companies/:{{company_ID}}/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}",
-						"employee"
+						"employees"
 					],
 					"variable": [
 						{
@@ -1324,73 +1324,12 @@
 			"response": []
 		},
 		{
-			"name": "post trip into employee",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "c867e0a3-dbd0-4770-9cc0-d897daa294e6",
-						"exec": [
-							"var jsonData = pm.response.json();\r",
-							"var companyIDemployee = jsonData._id;\r",
-							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
-							"\r",
-							"pm.test(\"Correct status code\", function() {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"description": "fuk",
-						"key": "Accept",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"description": "us",
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
-				},
-				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}/trip",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"employee",
-						":{{employee_ID}}",
-						"trip"
-					],
-					"variable": [
-						{
-							"key": "{{employee_ID}}",
-							"value": "{{employee_ID}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "post company into employee",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "3909d972-05fe-4860-984a-c390cab5826d",
+						"id": "af383bd6-2923-4666-83b1-1fc53b578296",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyIDemployee = jsonData._id;\r",
@@ -1425,15 +1364,15 @@
 					"raw": "{\r\n    \"name\": \"Valve\",\r\n    \"location\": \"Siatle\",\r\n    \"userName\": \"valve\",\r\n    \"userPass\": \"godGabe\",\r\n    \"employees\": [\r\n        \"5f6423ffe869f324682803cc\"\r\n    ],\r\n    \"trips\": [],\r\n    \"_id\": \"5f642114f1e0b74d94f77f6e\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}/company",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}/companies",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee",
+						"employees",
 						":{{employee_ID}}",
-						"company"
+						"companies"
 					],
 					"variable": [
 						{
@@ -1451,7 +1390,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "28780524-3378-4934-80ce-8a11c671d1de",
+						"id": "7ac0f55d-0b08-460a-8d5d-1289a3cab24f",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyIDemployee = jsonData._id;\r",
@@ -1486,15 +1425,15 @@
 					"raw": "{\r\n    \"fname\": \"johan\",\r\n    \"lname\": \"berg\",\r\n    \"userName\": \"johanneberg\",\r\n    \"userPass\": \"rollercoaster\",\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T00:18:28.860Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}/employee/:{{trip_ID}}",
+					"raw": "{{host}}/api/companies/:{{company_ID}}/employees/:{{trip_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}",
-						"employee",
+						"employees",
 						":{{trip_ID}}"
 					],
 					"variable": [
@@ -1517,7 +1456,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2e33ad5b-5dc0-4ee1-b94e-7e943da7661a",
+						"id": "2ae58c97-5309-4f30-bd1f-41865bd1eb14",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyIDemployee = jsonData._id;\r",
@@ -1552,15 +1491,15 @@
 					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/expense/:{{expense_ID}}/trip",
+					"raw": "{{host}}/api/expenses/:{{expense_ID}}/trips",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense",
+						"expenses",
 						":{{expense_ID}}",
-						"trip"
+						"trips"
 					],
 					"variable": [
 						{
@@ -1578,7 +1517,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "88a4fbf1-bb5e-4ea6-a057-83f6a8abff41",
+						"id": "f853a6af-8b2e-482c-ad8d-95ddc0461546",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var tripIDexpense = jsonData._id;\r",
@@ -1613,15 +1552,15 @@
 					"raw": "{\r\n    \"price\": 230,\r\n    \"location\": \"malta\",\r\n    \"description\": \"lots of pot\",\r\n    \"trip\": [],\r\n    \"date\": \"2020-09-17T23:46:50.751Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/trip/:{{trip_ID}}/expense",
+					"raw": "{{host}}/api/trips/:{{trip_ID}}/expenses",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip",
+						"trips",
 						":{{trip_ID}}",
-						"expense"
+						"expenses"
 					],
 					"variable": [
 						{
@@ -1639,7 +1578,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ac8941b8-4980-40ff-8bab-b02f41029fdc",
+						"id": "38cf8ed7-024a-4d21-b3da-b7de98022e9e",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyIDemployee = jsonData._id;\r",
@@ -1674,15 +1613,15 @@
 					"raw": "{\r\n    \"fname\": \"Potato\",\r\n    \"lname\": \"McPotatoFace\",\r\n    \"userName\": \"PPface\",\r\n    \"userPass\": \"potatoMan\",\r\n    \"trips\": [],\r\n    \"trip\": [],\r\n    \"birthday\": \"2020-09-18T03:00:42.760Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/trip/:{{trip_ID}}/employee",
+					"raw": "{{host}}/api/trips/:{{trip_ID}}/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip",
+						"trips",
 						":{{trip_ID}}",
-						"employee"
+						"employees"
 					],
 					"variable": [
 						{
@@ -1700,7 +1639,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "46ca9909-7ffb-4815-aa1a-bf40571b90c4",
+						"id": "9d1df90e-2555-48d4-abdf-4d3f572e0bab",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1731,13 +1670,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/company/:{{company_ID}}",
+					"raw": "{{host}}/api/companies/:{{company_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company",
+						"companies",
 						":{{company_ID}}"
 					],
 					"variable": [
@@ -1756,7 +1695,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6e1e6b5b-95c8-40dc-bb9c-a9848e5fa9d6",
+						"id": "a6267faf-e28f-4d86-a38f-72ed598e2784",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1787,13 +1726,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee",
+						"employees",
 						":{{employee_ID}}"
 					],
 					"variable": [
@@ -1812,7 +1751,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "673e3b2b-53dd-409f-a6d5-a1e4ce88dafa",
+						"id": "e7f367ec-445f-4a8d-8360-a54972c59a5b",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1843,19 +1782,19 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/expense/:{{expense_ID}}",
+					"raw": "{{host}}/api/expenses/:{{expense_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense",
+						"expenses",
 						":{{expense_ID}}"
 					],
 					"variable": [
 						{
 							"key": "{{expense_ID}}",
-							"value": "{{expense_ID}}"
+							"value": ""
 						}
 					]
 				}
@@ -1868,7 +1807,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2a1b1135-f03f-43cb-aa22-678f1e18fec5",
+						"id": "b72c9b40-e407-4d92-b3f2-daf6d9723d24",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1899,13 +1838,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/trip/:{{trip_ID}}",
+					"raw": "{{host}}/api/trips/:{{trip_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip",
+						"trips",
 						":{{trip_ID}}"
 					],
 					"variable": [
@@ -1924,7 +1863,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "70323386-2dcb-4894-9967-3c9f1921467f",
+						"id": "8f43d5b8-6069-44ad-89e9-aad831fd74f6",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1955,13 +1894,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/company",
+					"raw": "{{host}}/api/companies",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"company"
+						"companies"
 					]
 				}
 			},
@@ -1973,7 +1912,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0a9b6bd4-c1a0-4e99-b922-d05b28a1d599",
+						"id": "8f358a24-8fe5-48a8-bef1-698dfdc20497",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2004,13 +1943,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/employee",
+					"raw": "{{host}}/api/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee"
+						"employees"
 					]
 				}
 			},
@@ -2022,7 +1961,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "68d62f59-be50-4055-ae84-6f33a29ff789",
+						"id": "1fbc95f5-8988-4bc1-9296-3771d2122ca5",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2053,13 +1992,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/trip",
+					"raw": "{{host}}/api/trips",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trip"
+						"trips"
 					]
 				}
 			},
@@ -2071,7 +2010,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "06e747ec-aca7-4247-8e3e-56f5b5b03233",
+						"id": "2519c352-211c-47f5-a13e-5a1234beecbb",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2102,13 +2041,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/expense",
+					"raw": "{{host}}/api/expenses",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expense"
+						"expenses"
 					]
 				}
 			},
@@ -2119,7 +2058,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "669979d1-8cbc-4523-a688-e4d80f7c1834",
+				"id": "ed52c696-72bc-4965-ab48-d0e63dc98fc2",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2129,7 +2068,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "cceeb285-f44c-469d-8509-b1527a48e20a",
+				"id": "689e308e-6eba-4bb7-8231-5d1b9196a01b",
 				"type": "text/javascript",
 				"exec": [
 					""

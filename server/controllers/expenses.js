@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 const express = require("express");
 const Expense = require("../models/expense");
 const Trip = require("../models/trip");
-//const app = require("../app");
 
 const router = new express.Router();
 
@@ -18,7 +17,7 @@ router.post("/",function(req,res,next){
 
 });
 
-router.post('/:id/trip', function(req, res, next){
+router.post('/:id/trips', function(req, res, next){
     var id = req.params.id;
     Expense.findById(id).populate('trip').exec(function(err, expense){
         if (err) { return next(err); }

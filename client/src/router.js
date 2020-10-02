@@ -7,6 +7,7 @@ import EmployeeCreate from './views/EmployeeCreate.vue'
 import CompanyView from './views/CompanyView'
 import CompanyCreate from './views/CompanyCreate.vue'
 import CompanyEdit from './views/CompanyEdit.vue'
+import TripSearching from './views/TripSearching.vue'
 
 Vue.use(Router)
 
@@ -26,7 +27,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/EmployeeEdit',
+      path: '/employeeEdit',
       name: 'employeeEdit',
       component: EmployeeEdit,
       props: true
@@ -52,6 +53,11 @@ export default new Router({
       name: 'companyEdit',
       component: CompanyEdit,
       props: true
+    },
+    {
+      path: '/tripSearching',
+      name: 'tripSearching',
+      component: TripSearching
     }
   ]
 })

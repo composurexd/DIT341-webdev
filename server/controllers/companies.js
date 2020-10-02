@@ -19,7 +19,7 @@ router.post("/",function(req,res,next){
 
 });
 
-router.post('/:id/employee', function(req, res, next){
+router.post('/:id/employees', function(req, res, next){
     var id = req.params.id;
     Company.findById(id).populate('employee').exec(function(err, company){
         if (err) { return next(err); }
@@ -34,7 +34,7 @@ router.post('/:id/employee', function(req, res, next){
     });
 });
 
-router.post('/:id/trip', function(req, res, next){
+router.post('/:id/trips', function(req, res, next){
     var id = req.params.id;
     Company.findById(id).populate('trip').exec(function(err, company){
         if (err) { return next(err); }
@@ -63,11 +63,15 @@ router.get("/:id/employees",function(req,res,next){
 });
 
 router.get('/', function(req, res, next) {
-    Company.find(function(err, companies) {
+    Company.find()
+    .sort({name : 1})
+    .exec(function(err, companies) {
         if (err) { return next(err); }
         res.json({"companies": companies});
-    });
+    
+    })
 });
+
 
 router.get('/:id', function(req, res, next) {
     Company.findById(req.params.id, function(err, company) {
@@ -79,7 +83,7 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-//get employeeByID from CompanyByID-employee-Array //SHOULD PROBOBLY BE IN EMPLOYEE
+//GET employee in company
 router.get("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;
     var emplID = req.params.employeeID;
@@ -98,28 +102,24 @@ router.get("/:companyID/employees/:employeeID", function(req,res,next){
         });
     });
 });
-//DELETE employeeById from CompanyByID-employees-ary
+
+//DELETE employee from company
 router.delete("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;
     var emplID = req.params.employeeID;
-    Company.findById(compID,function(err,company){
+    
+    Company.findByIdAndUpdate(compID, {$pull : {employees : emplID}}, function(err,company){
         if(err){return next(err);}
         if(company===null){
             return res.status(404).json({"message":"Company not found"});
-        }
-        Employee.findOneAndDelete(emplID,function(err,employee){
+        }   
+
+        Employee.findOneAndDelete({_id: emplID},function(err,employee){
             if(err){return next(err);}
             if(employee===null){
                 return res.status(404).json({"message":"Employee (in company) not found "});
             }
-            //TODO: DELETE THE EMPLOYEE OUT OF THE COMPANY EMPLOYEEarray???? (CHECK OTHER DELETES IF IT ACTUALLY TAKES IT OUT OF THE ARRAYs...)
-            company.findOneAndDelete(emplID, function(err,employee){
-                if(err){return next(err);}
-                if(employee===null){
-                    return res.status(404).json({"message":"employee could not be deleted in company"});
-                }
-                
-            });
+            
             res.json(employee);
         });
     });

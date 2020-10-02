@@ -18,7 +18,7 @@ router.post("/",function(req,res,next){
 
 });
 
-router.post('/:id/trip', function(req, res, next){
+router.post('/:id/trips', function(req, res, next){
     var id = req.params.id;
     Employee.findById(id).populate('trip').exec(function(err, employee){
         if (err) { return next(err); }
@@ -33,7 +33,7 @@ router.post('/:id/trip', function(req, res, next){
     });
 });
 
-router.post('/:id/company', function(req, res, next){
+router.post('/:id/companies', function(req, res, next){
     var id = req.params.id;
     Employee.findById(id).populate('company').exec(function(err, employee){
         if (err) { return next(err); }
@@ -48,7 +48,7 @@ router.post('/:id/company', function(req, res, next){
     });
 });
 
-router.get('/', function(req, res, next) { //TODO FIX THIS SHIT res.json({"employees": employees});)
+router.get('/', function(req, res, next) { 
     Employee.find(function(err, employees) {
         if (err) { return next(err); }
         res.status(200).json({"employees": employees});
@@ -86,7 +86,6 @@ router.put('/:id', function(req, res, next) {
         }
         employee.fname = req.body.fname;
         employee.lname = req.body.lname;
-        employee.birthday = req.body.birthday;
         employee.userName = req.body.userName;
         employee.userPass = req.body.userPass;
         employee.company = req.body.company;
@@ -105,7 +104,6 @@ router.patch('/:id', function(req, res, next) {
         }
         if (req.body.fname)     {employee.fname = req.body.fname;}
         if (req.body.lname)     {employee.lname = req.body.lname;}
-        if (req.body.birthday)  {employee.birthday = req.body.birthday;}
         if (req.body.userName)  {employee.userName = req.body.userName;}
         if (req.body.userPass)  {employee.userPass = req.body.userPass;}
         if (req.body.companys)   {employee.companys = req.body.companys;}
