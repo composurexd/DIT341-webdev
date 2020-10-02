@@ -39,7 +39,7 @@ export default {
 
   methods: {
     deleteEmployee(employeeID) {
-      Api.delete('/employee/' + employeeID)
+      Api.delete('/employees/' + employeeID)
         .then(response => {
           console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
         })

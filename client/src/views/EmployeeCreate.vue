@@ -51,7 +51,7 @@ export default {
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
       this.birdy.companys = this.companies[document.getElementById('optionbox').selectedIndex]
-      Api.post('/company/' + this.companies[document.getElementById('optionbox').selectedIndex]._id + '/employee', this.birdy) // TODO: THIS NEEDS TO BECOME A PUT METHOD - SO EMPLOYEE IS DIRECTLY ADDED TO COMPANY
+      Api.post('/companies/' + this.companies[document.getElementById('optionbox').selectedIndex]._id + '/employee', this.birdy) // TODO: THIS NEEDS TO BECOME A PUT METHOD - SO EMPLOYEE IS DIRECTLY ADDED TO COMPANY
         .then(response => {
           console.log(response.data) // TODO: add proper error handling here and bellow
           this.$router.push({ path: '/EmployeeView' })
@@ -65,7 +65,7 @@ export default {
     },
     getCompanies() {
       this.companies = []
-      Api.get('/company').then(response => {
+      Api.get('/companies').then(response => {
         this.companies = []
         this.companies = response.data.companies
         console.log(this.companies)

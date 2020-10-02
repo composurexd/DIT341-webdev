@@ -42,7 +42,7 @@ export default {
 
   methods: {
     deleteCompany(companyID) {
-      Api.delete('/company/' + companyID)
+      Api.delete('/companies/' + companyID)
         .then(response => {
           console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
         })

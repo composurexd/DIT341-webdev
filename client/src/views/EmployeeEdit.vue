@@ -54,7 +54,7 @@ export default {
       this.birdy.userPass = document.getElementById('userPass').value
       this.birdy.companys = this.companies[document.getElementById('optionbox').selectedIndex]
       console.log(this.companies[document.getElementById('optionbox').selectedIndex])
-      Api.patch('/employee/' + this.employeeObject._id, this.birdy)
+      Api.patch('/employees/' + this.employeeObject._id, this.birdy)
         .then(response => {
           console.log(response.data) // TODO: add proper error handling here and bellow
           this.$router.push({ path: '/EmployeeView' })
@@ -68,7 +68,7 @@ export default {
     },
     getCompanies() {
       this.companies = []
-      Api.get('/company').then(response => {
+      Api.get('/companies').then(response => {
         this.companies = []
         this.companies = response.data.companies
         console.log(this.companies)

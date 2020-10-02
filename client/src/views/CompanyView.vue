@@ -32,7 +32,7 @@ export default {
   methods: {
     getCompanies() {
       this.companies = []
-      Api.get('/company').then(response => {
+      Api.get('/companies').then(response => {
         this.companies = []
         this.companies = response.data.companies
         console.log(this.companies)
@@ -42,7 +42,7 @@ export default {
       this.$router.push({ path: '/CompanyCreate' })
     },
     deleteAllCompanies() {
-      Api.delete('/company').then(response => {
+      Api.delete('/companies').then(response => {
         console.log(response.data) // TODO: add proper error handling here and bellow
       }).catch(error => {
         console.log(error)

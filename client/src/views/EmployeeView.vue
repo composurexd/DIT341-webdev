@@ -36,7 +36,7 @@ export default {
     getEmployees() {
       this.employees = []
       console.log(this.companyObject.name)
-      Api.get('/company/' + this.companyObject._id + '/employees').then(response => {
+      Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
         this.employees = []
         this.employees = response.data
         console.log(this.employees)
@@ -44,7 +44,7 @@ export default {
     },
     turnIDintoObjects() {
       for (var x = 0; x < this.employees.length; x++) {
-        Api.get('/employee/' + this.employees[x]).then(response => {
+        Api.get('/employees/' + this.employees[x]).then(response => {
           this.employeeObjects = response.data.employee
         })
       }
@@ -55,7 +55,7 @@ export default {
       this.$router.push({ path: '/EmployeeCreate' })
     },
     deleteAllEmpoyees() {
-      Api.delete('/employee').then(response => {
+      Api.delete('/employees').then(response => {
         console.log(response.data) // TODO: add proper error handling here and bellow
       }).catch(error => {
         console.log(error)
