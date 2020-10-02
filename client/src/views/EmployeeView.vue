@@ -2,9 +2,10 @@
   <b-list-group>
       <div>
         <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-        <button @click="newEmployee()">New Employee</button>
-        <button @click="deleteAllEmpoyees()">Delete All</button>
-        <li v-for='employee in employees' :key='employee._id'>
+        <button onload="testMethod()" @click="newEmployee()">New Employee</button>
+        <button onload="testMethod()" @click="deleteAllEmpoyees()">Delete All</button>
+        <button onload="testMethod()" @click="testMethod()">test</button>
+        <li onload="testMethod()" v-for='employee in employees' :key='employee._id'>
             <aEmployee :employee='employee' />
         </li>
       </div>
@@ -24,21 +25,32 @@ export default {
 
   data() {
     return {
-      employees: []
+      employees: [],
+      filteredEmployees: []
     }
   },
   created() {
     this.getEmployees()
+    this.testMethod()
   },
   methods: {
     getEmployees() {
       this.employees = []
-      console.log(this.companyObject.name)
-      Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
+      // console.log(this.companyObject.name)
+      // Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
+      Api.get('/employees').then(response => {
         this.employees = []
-        this.employees = response.data
-        console.log(this.employees[0])
+        this.employees = response.data.employees
+        // console.log(this.employees[0])
       })
+    },
+    testMethod() {
+      this.filteredEmployees = []
+      // this.employees.forEach(employee => {
+      //  if (employee.companys[0] === this.companyObject._id) { this.filteredEmployees.push(employee) }
+      // })
+      this.filteredEmployees = this.employees.filter(employee => employee.companys[0] === this.companyObject._id)
+      console.log(this.filteredEmployees)
     },
     newEmployee() {
       this.$router.push({ path: '/EmployeeCreate' })
