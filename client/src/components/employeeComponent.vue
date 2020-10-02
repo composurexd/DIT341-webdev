@@ -16,7 +16,7 @@
                     Trips: {{employee.trips}}
                 </b-col>
                 <button @click="editEmployee(employee)">Edit</button>
-                <button @click="deleteEmployee(employee._id)">Delete</button>
+                <button @click="deleteEmployee(employee)">Delete</button>
             </b-row>
         </b-container>
     </b-list-group-item>
@@ -35,8 +35,8 @@ export default {
   },
 
   methods: {
-    deleteEmployee(employeeID) {
-      Api.delete('/employees/' + employeeID)
+    deleteEmployee(employee) {
+      Api.delete('companies/' + employee.companys + '/employees/' + employee._id)
         .then(response => {
           console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
         })

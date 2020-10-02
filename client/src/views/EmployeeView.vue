@@ -2,10 +2,10 @@
   <b-list-group>
       <div>
         <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-        <button onload="testMethod()" @click="newEmployee()">New Employee</button>
-        <button onload="testMethod()" @click="deleteAllEmpoyees()">Delete All</button>
-        <button onload="testMethod()" @click="testMethod()">test</button>
-        <li onload="testMethod()" v-for='employee in employees' :key='employee._id'>
+        <button @click="newEmployee()">New Employee</button>
+        <button @click="deleteAllEmpoyees()">Delete All</button>
+        <!--button onload="testMethod()" @click="testMethod()">test</button-->
+        <li  v-for='employee in employees' :key='employee._id'>
             <aEmployee :employee='employee' />
         </li>
       </div>
