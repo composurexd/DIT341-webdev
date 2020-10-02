@@ -17,26 +17,39 @@ import { Api } from '@/Api.js'
 
 export default {
   name: 'EmployeeView',
+  props: ['companyObject'],
   components: {
     aEmployee
   },
 
   data() {
     return {
-      employees: []
+      employees: [],
+      employeeObjects: []
     }
   },
   created() {
     this.getEmployees()
+    this.turnIDintoObjects()
   },
   methods: {
     getEmployees() {
       this.employees = []
-      Api.get('/employee').then(response => {
+      console.log(this.companyObject.name)
+      Api.get('/company/' + this.companyObject._id + '/employees').then(response => {
         this.employees = []
-        this.employees = response.data.employees
+        this.employees = response.data
         console.log(this.employees)
       })
+    },
+    turnIDintoObjects() {
+      for (var x = 0; x < this.employees.length; x++) {
+        Api.get('/employee/' + this.employees[x]).then(response => {
+          this.employeeObjects = response.data.employee
+        })
+      }
+      console.log('HELP ME')
+      console.log(this.employeeObjects)
     },
     newEmployee() {
       this.$router.push({ path: '/EmployeeCreate' })

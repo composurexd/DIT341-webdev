@@ -66,6 +66,17 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
+router.get('/company/:id', function(req, res, next) {
+    var id = req.params.id;
+    Employee.findById(req.params.id, function(err, employee) {
+        if (err) { return next(err); }
+        if (employee == null) {
+            return res.status(404).json({"message": "Employee not found"});
+        }
+        res.json(employee);
+    });
+});
+
 router.put('/:id', function(req, res, next) {
     var id = req.params.id;
     Employee.findById(id, function(err, employee) {
@@ -97,7 +108,7 @@ router.patch('/:id', function(req, res, next) {
         if (req.body.birthday)  {employee.birthday = req.body.birthday;}
         if (req.body.userName)  {employee.userName = req.body.userName;}
         if (req.body.userPass)  {employee.userPass = req.body.userPass;}
-        if (req.body.company)   {employee.company = req.body.company;}
+        if (req.body.companys)   {employee.companys = req.body.companys;}
         employee.save();
         res.json(employee);
     });

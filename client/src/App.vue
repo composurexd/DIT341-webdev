@@ -3,7 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/potato">Potato</router-link>
+      <router-link to="/employeeView">EmployeeView</router-link>
+      |
+      <router-link to="/companyView">CompanyView</router-link>
     </div>
     <!-- Render the content of the current page view -->
     <router-view/>

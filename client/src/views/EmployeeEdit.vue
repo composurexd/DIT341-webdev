@@ -2,7 +2,6 @@
   <b-list-group>
       <div>
         <h1> THIS IS THE EMPLOYEE EDIT PAGE</h1>
-        <p>{{employeeObject}}</p>
         <label for="fname">First Name:</label>
         <input type="text" id="fname" name="fname" :value= employeeObject.fname><br><br>
         <label for="lname">Last Name:</label>
@@ -11,6 +10,14 @@
         <input type="text" id="userName" name="userName" :value= employeeObject.userName><br><br>
         <label for="userPass">Password:</label>
         <input type="text" id="userPass" name="userPass" :value= employeeObject.userPass><br><br>
+        <label for="optionbox">Company</label>
+        <select class="groupContainer" id=optionbox >
+            <option v-for="(company, id) in companies" :key="id"
+                v-bind:value="company" class="groupValue">
+                {{ company.name }}
+            </option>
+        </select>
+        <button @click="cancel()">Cancel</button>
         <button @click="saveEmployee()">saveEmployee</button>
       </div>
   </b-list-group>
@@ -30,11 +37,14 @@ export default {
         fname: '',
         lname: '',
         userName: '',
-        userPass: ''
-      }
+        userPass: '',
+        companys: []
+      },
+      companies: []
     }
   },
   created() {
+    this.getCompanies()
   },
   methods: {
     saveEmployee() {
@@ -42,13 +52,27 @@ export default {
       this.birdy.lname = document.getElementById('lname').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
+      this.birdy.companys = this.companies[document.getElementById('optionbox').selectedIndex]
+      console.log(this.companies[document.getElementById('optionbox').selectedIndex])
       Api.patch('/employee/' + this.employeeObject._id, this.birdy)
         .then(response => {
           console.log(response.data) // TODO: add proper error handling here and bellow
+          this.$router.push({ path: '/EmployeeView' })
         })
         .catch(error => {
           console.log(error)
         })
+    },
+    cancel() {
+      this.$router.push({ path: '/EmployeeView' })
+    },
+    getCompanies() {
+      this.companies = []
+      Api.get('/company').then(response => {
+        this.companies = []
+        this.companies = response.data.companies
+        console.log(this.companies)
+      })
     }
   }
 }

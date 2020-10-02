@@ -3,29 +3,23 @@
         <b-container>
             <b-row>
                 <b-col>
-                    {{employee.fname}}
+                    Name: {{employee.fname}} {{employee.lname}}
                 </b-col>
-                <b-col>
-                    {{employee.lname}}
-                </b-col>
+
                 <b-col>
                     {{employee.birthday}}
                 </b-col>
                 <b-col>
-                    {{employee.userName}}
+                    User Name: {{employee.userName}}
                 </b-col>
                 <b-col>
-                    {{employee.userPass}}
+                    Password: {{employee.userPass}}
                 </b-col>
                 <b-col>
-                    {{employee.trips}}
+                    Trips: {{employee.trips}}
                 </b-col>
-                <b-col>
-                    <button @click="editEmployee(employee)">Edit</button>
-                </b-col>
-                <b-col>
-                    <button @click="deleteEmployee(employee._id)">Delete</button>
-                </b-col>
+                <button @click="editEmployee(employee)">Edit</button>
+                <button @click="deleteEmployee(employee._id)">Delete</button>
             </b-row>
         </b-container>
     </b-list-group-item>

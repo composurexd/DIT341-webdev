@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import Potato from './views/Potato.vue'
+import EmployeeView from './views/EmployeeView.vue'
 import EmployeeEdit from './views/EmployeeEdit.vue'
 import EmployeeCreate from './views/EmployeeCreate.vue'
+import CompanyView from './views/CompanyView'
+import CompanyCreate from './views/CompanyCreate.vue'
+import CompanyEdit from './views/CompanyEdit.vue'
 
 Vue.use(Router)
 
@@ -17,9 +20,10 @@ export default new Router({
       component: Home
     },
     {
-      path: '/potato',
-      name: 'potato',
-      component: Potato
+      path: '/EmployeeView',
+      name: 'employeeView',
+      component: EmployeeView,
+      props: true
     },
     {
       path: '/EmployeeEdit',
@@ -30,7 +34,24 @@ export default new Router({
     {
       path: '/EmployeeCreate',
       name: 'employeeCreate',
-      component: EmployeeCreate
+      component: EmployeeCreate,
+      props: true
+    },
+    {
+      path: '/CompanyView',
+      name: 'companyView',
+      component: CompanyView
+    },
+    {
+      path: '/CompanyCreate',
+      name: 'companyCreate',
+      component: CompanyCreate
+    },
+    {
+      path: '/CompanyEdit',
+      name: 'companyEdit',
+      component: CompanyEdit,
+      props: true
     }
   ]
 })
