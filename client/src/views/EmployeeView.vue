@@ -30,7 +30,6 @@ export default {
   },
   created() {
     this.getEmployees()
-    this.turnIDintoObjects()
   },
   methods: {
     getEmployees() {
@@ -41,15 +40,15 @@ export default {
         this.employees = response.data
         console.log(this.employees)
       })
-    },
-    turnIDintoObjects() {
       for (var x = 0; x < this.employees.length; x++) {
-        Api.get('/employees/' + this.employees[x]).then(response => {
-          this.employeeObjects = response.data.employee
+        Api.get('/employees/:' + this.employees[x]).then(response => {
+          this.employeeObjects[x] = response.data.employee
+          console.log(response.data.employee)
         })
       }
       console.log('HELP ME')
       console.log(this.employeeObjects)
+      console.log('HELP ME')
     },
     newEmployee() {
       this.$router.push({ path: '/EmployeeCreate' })

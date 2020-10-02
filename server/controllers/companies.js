@@ -58,7 +58,7 @@ router.get("/:id/employees",function(req,res,next){
         if (company == null) {
             return res.status(404).json({"message": "Company not found"});
         }
-        res.status(201).json(company.employees);
+        res.json(company.employees);
     });
 });
 
