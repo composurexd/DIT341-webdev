@@ -24,13 +24,11 @@ export default {
 
   data() {
     return {
-      employees: [],
-      employeeObjects: []
+      employees: []
     }
   },
   created() {
     this.getEmployees()
-    this.turnIDintoObjects()
   },
   methods: {
     getEmployees() {
@@ -39,17 +37,8 @@ export default {
       Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
         this.employees = []
         this.employees = response.data
-        console.log(this.employees)
+        console.log(this.employees[0])
       })
-    },
-    turnIDintoObjects() {
-      for (var x = 0; x < this.employees.length; x++) {
-        Api.get('/employees/' + this.employees[x]).then(response => {
-          this.employeeObjects = response.data.employee
-        })
-      }
-      console.log('HELP ME')
-      console.log(this.employeeObjects)
     },
     newEmployee() {
       this.$router.push({ path: '/EmployeeCreate' })

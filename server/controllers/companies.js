@@ -45,7 +45,7 @@ router.post('/:id/trips', function(req, res, next){
         trip.save();
         company.trips.push(trip);
         company.save();
-        res.status(201).json(trip);
+        res.json(trip);
     });
 });
 
