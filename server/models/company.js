@@ -11,6 +11,6 @@ var companySchema = new Schema({
     trips : [{type: Schema.Types.ObjectId, ref:"trip"}]
 });
 
-var Company = mongoose.model("company", companySchema);
+var Company = mongoose.model("companies", companySchema);
 
 module.exports = Company;

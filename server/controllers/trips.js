@@ -18,7 +18,7 @@ router.post("/",function(req,res,next){
 });
 
 
-  router.post('/:id/expense', function(req, res, next){
+  router.post('/:id/expenses', function(req, res, next){
     var id = req.params.id;
     Trip.findById(id).populate('expense').exec(function(err, trip){
         if (err) { return next(err); }
@@ -34,7 +34,7 @@ router.post("/",function(req,res,next){
     });
 });
 
-router.post('/:id/employee', function(req, res, next){
+router.post('/:id/employees', function(req, res, next){
     var id = req.params.id;
     Trip.findById(id).populate('employee').exec(function(err, trip){
         if (err) { return next(err); }
@@ -129,7 +129,7 @@ router.delete('/', function(req, res, next) {
     });
 });
 
-router.post("/expense", function(req, res, next) { //TODO: THIS IS A GET THAT SHOULD BE A POST
+router.post("/expenses", function(req, res, next) { //TODO: THIS IS A GET THAT SHOULD BE A POST
   //  var id = req.params.id;
     Trip.findById(id).populate('expense').
     exec(function (err, trip) {

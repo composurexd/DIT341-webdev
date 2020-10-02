@@ -18,7 +18,7 @@ router.post("/",function(req,res,next){
 
 });
 
-router.post('/:id/trip', function(req, res, next){
+router.post('/:id/trips', function(req, res, next){
     var id = req.params.id;
     Employee.findById(id).populate('trip').exec(function(err, employee){
         if (err) { return next(err); }
@@ -33,7 +33,7 @@ router.post('/:id/trip', function(req, res, next){
     });
 });
 
-router.post('/:id/company', function(req, res, next){
+router.post('/:id/companies', function(req, res, next){
     var id = req.params.id;
     Employee.findById(id).populate('company').exec(function(err, employee){
         if (err) { return next(err); }
@@ -48,7 +48,7 @@ router.post('/:id/company', function(req, res, next){
     });
 });
 
-router.get('/', function(req, res, next) { //TODO FIX THIS SHIT res.json({"employees": employees});)
+router.get('/', function(req, res, next) { 
     Employee.find(function(err, employees) {
         if (err) { return next(err); }
         res.status(200).json({"employees": employees});

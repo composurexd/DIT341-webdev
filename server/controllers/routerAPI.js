@@ -6,10 +6,10 @@ const express = require("express");
 
 const router = express.Router();
 
-router.use("/company",companies);
-router.use("/employee",employees);
-router.use("/expense",expenses);
-router.use("/trip",trips);
+router.use("/companies",companies);
+router.use("/employees",employees);
+router.use("/expenses",expenses);
+router.use("/trips",trips);
 
 module.exports = router;
 
