@@ -24,8 +24,7 @@ export default {
 
   data() {
     return {
-      employees: [],
-      employeeObjects: []
+      employees: []
     }
   },
   created() {
@@ -38,17 +37,8 @@ export default {
       Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
         this.employees = []
         this.employees = response.data
-        console.log(this.employees)
+        console.log(this.employees[0])
       })
-      for (var x = 0; x < this.employees.length; x++) {
-        Api.get('/employees/:' + this.employees[x]).then(response => {
-          this.employeeObjects[x] = response.data.employee
-          console.log(response.data.employee)
-        })
-      }
-      console.log('HELP ME')
-      console.log(this.employeeObjects)
-      console.log('HELP ME')
     },
     newEmployee() {
       this.$router.push({ path: '/EmployeeCreate' })

@@ -66,6 +66,16 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
+router.get('/:id/companies', function(req, res, next) {
+    var company = req.query.id;
+    Employee.find({'companies' : company}).populate('companys','companies').exec(function(err,employees) {
+        if (err) { return next(err); }
+        if(!employees.length){ return res.status(404).json({'message': "No employee found in company: " + companys});
+        }
+        res.json({'employees' : employees});
+    });
+});
+
 router.put('/:id', function(req, res, next) {
     var id = req.params.id;
     Employee.findById(id, function(err, employee) {
