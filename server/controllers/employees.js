@@ -56,7 +56,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    var id = req.params.id;
+    //var id = req.params.id;
     Employee.findById(req.params.id, function(err, employee) {
         if (err) { return next(err); }
         if (employee == null) {
@@ -66,13 +66,19 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
+// filter all employees which belong to a company (returns employee[Object])
 router.get('/companies/:id', function(req, res, next) {
-    var company = req.query.type;
-    Employee.find({'companies' : company}).populate('companys','companyies').exec(function(err,employees) {
+    var cID = req.params.id; 
+    console.log(cID)
+    Employee.find(function(err, employees) {
         if (err) { return next(err); }
-        if(!employees.length){ return res.status(404).json({'message': "No employee found in company: " + companys});
+        var filteredEmployees = [];
+        for (var x=0; x<employees.length;x++){
+            if(employees[x].companys.toString() === cID)
+            filteredEmployees.push(employees[x]);
         }
-        res.json({'employees' : employees});
+        console.log("anything REALY!")
+        res.status(200).json({"employees": filteredEmployees});
     });
 });
 

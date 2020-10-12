@@ -27,7 +27,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/employeeEdit',
+      path: '/EmployeeEdit',
       name: 'employeeEdit',
       component: EmployeeEdit,
       props: true
@@ -35,13 +35,13 @@ export default new Router({
     {
       path: '/EmployeeCreate',
       name: 'employeeCreate',
-      component: EmployeeCreate,
-      props: true
+      component: EmployeeCreate
     },
     {
       path: '/CompanyView',
       name: 'companyView',
-      component: CompanyView
+      component: CompanyView,
+      props: true
     },
     {
       path: '/CompanyCreate',
