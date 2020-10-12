@@ -10,13 +10,6 @@
         <input type="text" id="userName" name="userName" :value= employeeObject.userName><br><br>
         <label for="userPass">Password:</label>
         <input type="text" id="userPass" name="userPass" :value= employeeObject.userPass><br><br>
-        <label for="optionbox">Company</label>
-        <select class="groupContainer" id=optionbox >
-            <option v-for="(company, id) in companies" :key="id"
-                v-bind:value="company" class="groupValue">
-                {{ company.name }}
-            </option>
-        </select>
         <button @click="cancel()">Cancel</button>
         <button @click="saveEmployee()">saveEmployee</button>
       </div>
@@ -52,8 +45,7 @@ export default {
       this.birdy.lname = document.getElementById('lname').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
-      this.birdy.companys = this.companies[document.getElementById('optionbox').selectedIndex]
-      console.log(this.companies[document.getElementById('optionbox').selectedIndex])
+      // console.log(this.companies[document.getElementById('optionbox').selectedIndex])
       Api.patch('/employees/' + this.employeeObject._id, this.birdy)
         .then(response => {
           console.log(response.data) // TODO: add proper error handling here and bellow

@@ -66,7 +66,7 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
-router.get('/:id/companies', function(req, res, next) {
+router.get('/companies/:id', function(req, res, next) {
     var company = req.query.type;
     Employee.find({'companies' : company}).populate('companys','companyies').exec(function(err,employees) {
         if (err) { return next(err); }
@@ -87,7 +87,7 @@ router.put('/:id', function(req, res, next) {
         employee.lname = req.body.lname;
         employee.userName = req.body.userName;
         employee.userPass = req.body.userPass;
-        employee.company = req.body.company;
+        // employee.company = req.body.company;
         employee.save();
         res.json(employee);
     });
@@ -111,7 +111,7 @@ router.patch('/:id', function(req, res, next) {
     });
 });
 
-// Delete the Employee with the given ID
+// Delete the Employee with the given ID -fixed also deletes pointer to employee
 router.delete('/:id', function(req, res, next) {
     var id = req.params.id;
     Employee.findOneAndDelete({_id: id}, function(err, employee) {
@@ -119,6 +119,16 @@ router.delete('/:id', function(req, res, next) {
         if (employee == null) {
             return res.status(404).json({"message": "Employee not found"});
         }
+        //Company.getById({_id: employee.companys[0]},function(err,company) {
+        //  if (err) { return next(err); }
+        //    if (company == null) {
+        //        return res.status(404).json({"message": "Employees Company not found"});
+        //    } 
+        //    for (var x=0; x < company.employees.length; x++){
+        //        if(company.employees[x] === employee.companys[0])
+        //            company.employees.split(x)
+        //    }
+        //});
         res.json(employee);
     });
 });

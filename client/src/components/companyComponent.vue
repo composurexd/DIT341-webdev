@@ -21,8 +21,8 @@
                     Trips: {{company.trips}}
                 </b-col>
                 <button @click="editCompany(company)">Edit</button>
-                <button @click="showEmployees(company)">View Employees</button>
-                <button @click="deleteCompany(company._id)">Delete</button>
+                <button @click="showEmployees(company)">View Employees</button> <!--send emit back to delete from companyview-->
+                <button @click="deleteCompany(company)">Delete</button>
             </b-row>
         </b-container>
     </b-list-group-item>
@@ -41,8 +41,17 @@ export default {
   },
 
   methods: {
-    deleteCompany(companyID) {
-      Api.delete('/companies/' + companyID)
+    deleteCompany(company) {
+      for (var x = 0; x < company.employees.length; x++) {
+        Api.delete('/employees/' + company.employees[x])
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+      Api.delete('/companies/' + company._id)
         .then(response => {
           console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
         })
