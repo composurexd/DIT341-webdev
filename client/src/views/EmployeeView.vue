@@ -4,7 +4,7 @@
         <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
         <button @click="newEmployee()">New Employee</button>
         <button @click="deleteAllEmpoyees()">Delete All</button>
-        <button @click="testMethod(companyObject)">test</button>
+        <button @click="backToCompanyView()">Back to Companies</button>
         <li v-for='employee in employees' :key='employee._id'>
             <aEmployee :employee='employee' />
         </li>
@@ -37,25 +37,11 @@ export default {
       this.employees = []
       console.log(this.companyObject.name)
       // Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
-      Api.get('/employees/c/' + this.companyObject._id).then(response => {
+      Api.get('/employees/companies/' + this.companyObject._id).then(response => {
         this.employees = []
         this.employees = response.data.employees
         console.log(this.employees)
       })
-    },
-    testMethod(cO) {
-      // console.log(cO)
-      Api.get('/employees/c/' + cO._id).then(response => {
-        this.employees = []
-        this.employees = response.data.employees
-        console.log(this.employees)
-      })
-      // this.filteredEmployees = []
-      // this.employees.forEach(employee => {
-      //  if (employee.companys[0] === this.companyObject._id) { this.filteredEmployees.push(employee) }
-      // })
-      // this.filteredEmployees = this.employees.filter(employee => employee.companys[0] === this.companyObject._id)
-      // console.log(this.filteredEmployees)
     },
     newEmployee() {
       this.$router.push({ path: '/EmployeeCreate' })
@@ -66,6 +52,9 @@ export default {
       }).catch(error => {
         console.log(error)
       })
+    },
+    backToCompanyView() {
+      this.$router.push({ path: '/CompanyView' })
     }
   }
 }
