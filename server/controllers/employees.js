@@ -74,7 +74,7 @@ router.get('/companies/:id', function(req, res, next) {
         if (err) { return next(err); }
         var filteredEmployees = [];
         for (var x=0; x<employees.length;x++){
-            if(employees[x].companys.toString() === cID)
+            if(employees[x].companys == cID) // === identical / == same (even if one string the other int)
             filteredEmployees.push(employees[x]);
         }
         console.log("anything REALY!")

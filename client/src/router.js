@@ -35,7 +35,8 @@ export default new Router({
     {
       path: '/EmployeeCreate',
       name: 'employeeCreate',
-      component: EmployeeCreate
+      component: EmployeeCreate,
+      props: true
     },
     {
       path: '/CompanyView',

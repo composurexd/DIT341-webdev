@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { Api } from '@/Api'
+// import { Api } from '@/Api'
 
 export default {
   name: 'aEmployee',
@@ -35,17 +35,21 @@ export default {
   },
 
   methods: {
+    // deleteEmployee(employee) {
+    // Api.delete('companies/' + employee.companys + '/ employees /' + employee._id)
+    // .then(response => {
+    // console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
+    // })
+    // .catch(error => {
+    // console.log(error)
+    // })
+    // },this.$refs.modal.showModal();
     deleteEmployee(employee) {
-      Api.delete('companies/' + employee.companys + '/employees/' + employee._id)
-        .then(response => {
-          console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      // this.$root.$emit('deleteSingleEmployee', employee)
+      console.log('TRYING TO PASS')
     },
     editEmployee(employee) {
-      this.$router.push({ name: 'employeeEdit', params: { employeeObject: employee } })
+      this.$router.push({ name: 'employeeEdit', params: { employeeObject: employee } }) // needs to pass company - or go over parent
     }
   }
 }

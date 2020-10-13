@@ -28,7 +28,7 @@ import { Api } from '@/Api'
 
 export default {
   name: 'employeeCreate',
-  props: ['employeeObject'],
+  props: ['companyObj'],
   data() {
     return {
       birdy: {
@@ -53,22 +53,20 @@ export default {
       this.birdy.companys = this.companies[document.getElementById('optionbox').selectedIndex]
       Api.post('/companies/' + this.companies[document.getElementById('optionbox').selectedIndex]._id + '/employees', this.birdy) // TODO: THIS NEEDS TO BECOME A PUT METHOD - SO EMPLOYEE IS DIRECTLY ADDED TO COMPANY
         .then(response => {
-          console.log(response.data) // TODO: add proper error handling here and bellow
-          this.$router.push({ path: '/EmployeeView' })
+          this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } }) // TODO: pass company back to view
         })
         .catch(error => {
           console.log(error)
         })
     },
     cancel() {
-      this.$router.push({ path: '/EmployeeView' })
+      this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } }) // TODO: needs to know what company it belongs to - pass companyObject from View -> Create
     },
     getCompanies() {
       this.companies = []
       Api.get('/companies').then(response => {
         this.companies = []
         this.companies = response.data.companies
-        console.log(this.companies)
       })
     }
   }

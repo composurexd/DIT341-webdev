@@ -33,11 +33,13 @@ export default {
         userPass: '',
         companys: []
       },
-      companies: []
+      companies: [],
+      companyObj: []
     }
   },
   created() {
     this.getCompanies()
+    this.getCompany()
   },
   methods: {
     saveEmployee() {
@@ -45,19 +47,28 @@ export default {
       this.birdy.lname = document.getElementById('lname').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
-      // console.log(this.companies[document.getElementById('optionbox').selectedIndex])
+      this.birdy.companys = this.companyObj._id
+      console.log(this.birdy.companys) // TODO: THIS DOES NOT WORK - the object is passed but not picked up? somethings weird with the patch i believe
+      // now patch - and pass back to employee view while knowing what company the page is lookig at
       Api.patch('/employees/' + this.employeeObject._id, this.birdy)
         .then(response => {
-          console.log(response.data) // TODO: add proper error handling here and bellow
-          this.$router.push({ path: '/EmployeeView' })
+          this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } }) // pass company back to view
         })
         .catch(error => {
           console.log(error)
         })
     },
     cancel() {
-      this.$router.push({ path: '/EmployeeView' })
+      this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } }) // Pass company back to view
     },
+    // get the company this employee belongs to
+    getCompany() {
+      Api.get('/companies/' + this.employeeObject.companys).then(response => {
+        this.companyObj = []
+        this.companyObj = response.data
+      })
+    },
+    // get all companies into this.company array
     getCompanies() {
       this.companies = []
       Api.get('/companies').then(response => {

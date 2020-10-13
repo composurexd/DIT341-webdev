@@ -5,6 +5,7 @@
         <button @click="newEmployee()">New Employee</button>
         <button @click="deleteAllEmpoyees()">Delete All</button>
         <button @click="backToCompanyView()">Back to Companies</button>
+        <button @click="test()">TEST</button>
         <li v-for='employee in employees' :key='employee._id'>
             <aEmployee :employee='employee' />
         </li>
@@ -25,18 +26,17 @@ export default {
 
   data() {
     return {
-      employees: [],
-      filteredEmployees: []
+      employees: []
     }
   },
   created() {
     this.getEmployees()
   },
   methods: {
+    // get employees from a cirten company
     getEmployees() {
       this.employees = []
-      console.log(this.companyObject.name)
-      // Api.get('/companies/' + this.companyObject._id + '/employees').then(response => {
+      console.log(this.companyObject)
       Api.get('/employees/companies/' + this.companyObject._id).then(response => {
         this.employees = []
         this.employees = response.data.employees
@@ -44,7 +44,23 @@ export default {
       })
     },
     newEmployee() {
-      this.$router.push({ path: '/EmployeeCreate' })
+      this.$router.push({ name: 'employeeCreate', params: { companyObj: this.companyObject } })
+    },
+    deleteSingleEmployee(employee) { // TODO: write delete - 1. find employee in employees, 2. delete it from the array, and from the employee DBase, 3. hope to god it refreshes itself!
+      console.log(employee)
+      console.log('DELETING SOMETHING SECOND HAND')
+      Api.delete('companies/' + employee.companys + '/employees/' + employee._id)
+        .then(response => {
+          console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      for (var x = 0; x < this.employees.length; x++) {
+        if (employee === this.employees[x]) {
+          this.employees.split(x, x)
+        }
+      }
     },
     deleteAllEmpoyees() {
       Api.delete('/employees').then(response => {
@@ -55,6 +71,9 @@ export default {
     },
     backToCompanyView() {
       this.$router.push({ path: '/CompanyView' })
+    },
+    test() {
+      console.log(this.companyObject)
     }
   }
 }
