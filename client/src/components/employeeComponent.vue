@@ -46,7 +46,9 @@ export default {
     // },this.$refs.modal.showModal();
     deleteEmployee(employee) {
       // this.$root.$emit('deleteSingleEmployee', employee)
-      console.log('TRYING TO PASS')
+      console.log('TRYING TO PASS: ')
+      // console.log(employee)
+      this.$emit('delete-employee', employee)
     },
     editEmployee(employee) {
       this.$router.push({ name: 'employeeEdit', params: { employeeObject: employee } }) // needs to pass company - or go over parent

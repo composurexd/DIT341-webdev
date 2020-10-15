@@ -48,7 +48,6 @@ export default {
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
       this.birdy.companys = this.companyObj._id
-      console.log(this.birdy.companys) // TODO: THIS DOES NOT WORK - the object is passed but not picked up? somethings weird with the patch i believe
       // now patch - and pass back to employee view while knowing what company the page is lookig at
       Api.patch('/employees/' + this.employeeObject._id, this.birdy)
         .then(response => {
@@ -74,7 +73,6 @@ export default {
       Api.get('/companies').then(response => {
         this.companies = []
         this.companies = response.data.companies
-        console.log(this.companies)
       })
     }
   }

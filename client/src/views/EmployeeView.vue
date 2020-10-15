@@ -1,15 +1,16 @@
 <template>
   <b-list-group>
-      <div>
-        <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-        <button @click="newEmployee()">New Employee</button>
-        <button @click="deleteAllEmpoyees()">Delete All</button>
-        <button @click="backToCompanyView()">Back to Companies</button>
-        <button @click="test()">TEST</button>
-        <li v-for='employee in employees' :key='employee._id'>
-            <aEmployee :employee='employee' />
-        </li>
-      </div>
+    <div>
+      <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
+      <button @click="newEmployee()">New Employee</button>
+      <button @click="deleteAllEmpoyees()">Delete All</button>
+      <button @click="backToCompanyView()">Back to Companies</button>
+      <button @click="test()">TEST</button>
+      <li v-for='employee in employees'
+        :key='employee._id'>
+          <aEmployee :employee='employee' @delete-employee="deleteSingleEmployee" />
+      </li>
+    </div>
   </b-list-group>
 </template>
 
@@ -46,28 +47,35 @@ export default {
     newEmployee() {
       this.$router.push({ name: 'employeeCreate', params: { companyObj: this.companyObject } })
     },
-    deleteSingleEmployee(employee) { // TODO: write delete - 1. find employee in employees, 2. delete it from the array, and from the employee DBase, 3. hope to god it refreshes itself!
-      console.log(employee)
-      console.log('DELETING SOMETHING SECOND HAND')
-      Api.delete('companies/' + employee.companys + '/employees/' + employee._id)
+    // delete all employees from company (and from company object passed)
+    deleteAllEmpoyees() {
+      for (var x = 0; x < this.employees.length; x++) {
+        Api.delete('companies/' + this.companyObject._id + '/employees/' + this.employees[x]._id)
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+      this.companyObject.employees = [] // TODO: this is a temporary solution - this needs to happen in backend hopefully!
+      this.employees = []
+    },
+    // delete employee - this is triggered by component and emited to this method to allow responsive updateing
+    deleteSingleEmployee(employee) {
+      Api.delete('companies/' + this.companyObject._id + '/employees/' + employee._id)
         .then(response => {
-          console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
+          console.log(response.data)
         })
         .catch(error => {
           console.log(error)
         })
+      // delete single employee from array (aka visual/view)
       for (var x = 0; x < this.employees.length; x++) {
         if (employee === this.employees[x]) {
-          this.employees.split(x, x)
+          this.employees.splice(x, 1)
         }
       }
-    },
-    deleteAllEmpoyees() {
-      Api.delete('/employees').then(response => {
-        console.log(response.data) // TODO: add proper error handling here and bellow
-      }).catch(error => {
-        console.log(error)
-      })
     },
     backToCompanyView() {
       this.$router.push({ path: '/CompanyView' })

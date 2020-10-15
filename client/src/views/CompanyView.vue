@@ -41,7 +41,7 @@ export default {
     newCompany() {
       this.$router.push({ path: '/CompanyCreate' })
     },
-    deleteAllCompanies() {
+    deleteAllCompanies() { // TODO: THIS WILL CRASH IF EMPLOYEES ARE DELETED ALREADY
       Api.delete('/companies').then(response => {
         console.log(response.data) // TODO: add proper error handling here and bellow
       }).catch(error => {
