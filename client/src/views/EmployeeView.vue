@@ -2,10 +2,9 @@
   <b-list-group>
     <div>
       <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-      <button @click="newEmployee()">New Employee</button>
-      <button @click="deleteAllEmpoyees()">Delete All</button>
-      <button @click="backToCompanyView()">Back to Companies</button>
-      <button @click="test()">TEST</button>
+      <button @click="newEmployee()">Create Employee</button> |
+      <button @click="deleteAllEmpoyees()">Delete All</button> |
+      <button @click="backToCompanyView()">Back</button>
       <li v-for='employee in employees'
         :key='employee._id'>
           <aEmployee :employee='employee' @delete-employee="deleteSingleEmployee" />
@@ -79,9 +78,6 @@ export default {
     },
     backToCompanyView() {
       this.$router.push({ path: '/CompanyView' })
-    },
-    test() {
-      console.log(this.companyObject)
     }
   }
 }

@@ -3,9 +3,10 @@
       <div>
         <h1> THIS IS THE TABLE OF COMPANIES</h1>
         <button @click="newCompany()">New Company</button>
+        |
         <button @click="deleteAllCompanies()">Delete All</button>
         <li v-for='company in companies' :key='company._id'>
-            <aCompany :company='company' />
+            <aCompany :company='company' @delete-company="deleteSingleCompany" />
         </li>
       </div>
   </b-list-group>
@@ -30,6 +31,7 @@ export default {
     this.getCompanies()
   },
   methods: {
+    // get individual company
     getCompanies() {
       this.companies = []
       Api.get('/companies').then(response => {
@@ -38,15 +40,34 @@ export default {
         console.log(this.companies)
       })
     },
+    // create new employee
     newCompany() {
       this.$router.push({ path: '/CompanyCreate' })
     },
-    deleteAllCompanies() { // TODO: THIS WILL CRASH IF EMPLOYEES ARE DELETED ALREADY
+    // delete single company and their employees
+    deleteSingleCompany(company) {
+      Api.delete('companies/' + company._id)
+        .then(response => {
+          console.log(response.data)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      // delete single employee from array (aka visual/view)
+      for (var x = 0; x < this.companies.length; x++) {
+        if (company === this.companies[x]) {
+          this.companies.splice(x, 1)
+        }
+      }
+    },
+    // delete all companies (and their employees)
+    deleteAllCompanies() {
       Api.delete('/companies').then(response => {
-        console.log(response.data) // TODO: add proper error handling here and bellow
+        console.log(response.data)
       }).catch(error => {
         console.log(error)
       })
+      this.companies = [] // delete companies from view/data array
     }
   }
 }

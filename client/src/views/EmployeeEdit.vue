@@ -10,7 +10,9 @@
         <input type="text" id="userName" name="userName" :value= employeeObject.userName><br><br>
         <label for="userPass">Password:</label>
         <input type="text" id="userPass" name="userPass" :value= employeeObject.userPass><br><br>
-        <button @click="cancel()">Cancel</button>
+        <label for="company"> Company:</label>
+        <input type="text" id="company" name="company" :value= this.companyObj.name disabled><br><br>
+        <button @click="cancel()">Cancel</button> |
         <button @click="saveEmployee()">saveEmployee</button>
       </div>
   </b-list-group>

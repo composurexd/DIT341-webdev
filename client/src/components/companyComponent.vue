@@ -21,7 +21,7 @@
                     Trips: {{company.trips}}
                 </b-col>
                 <button @click="editCompany(company)">Edit</button>
-                <button @click="showEmployees(company)">View Employees</button> <!--send emit back to delete from companyview-->
+                <button @click="showEmployees(company)">View Employees</button><!--send emit back to delete from companyview-->
                 <button @click="deleteCompany(company)">Delete</button>
             </b-row>
         </b-container>
@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import { Api } from '@/Api'
-
 export default {
   name: 'aCompany',
   props: ['company'],
@@ -42,23 +40,29 @@ export default {
 
   methods: {
     deleteCompany(company) {
-      for (var x = 0; x < company.employees.length; x++) {
-        Api.delete('/employees/' + company.employees[x])
-          .then(response => {
-            console.log(response.data)
-          })
-          .catch(error => {
-            console.log(error)
-          })
-      }
-      Api.delete('/companies/' + company._id)
-        .then(response => {
-          console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
-        })
-        .catch(error => {
-          console.log(error)
-        })
+      // this.$root.$emit('deleteSingleEmployee', employee)
+      console.log('TRYING TO PASS COMPANY: ')
+      // console.log(employee)
+      this.$emit('delete-company', company)
     },
+    // deleteCompany(company) {
+    //   for (var x = 0; x < company.employees.length; x++) {
+    //     Api.delete('/employees/' + company.employees[x])
+    //      .then(response => {
+    //      console.log(response.data)
+    //   })
+    //  .catch(error => {
+    //    console.log(error)
+    //  })
+    // }
+    //  Api.delete('/companies/' + company._id)
+    //    .then(response => {
+    //      console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
+    //    })
+    //    .catch(error => {
+    //      console.log(error)
+    //    })
+    // },
     editCompany(company) {
       this.$router.push({ name: 'companyEdit', params: { companyObject: company } })
     },

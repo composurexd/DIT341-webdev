@@ -157,7 +157,7 @@ router.patch('/:id', function(req, res, next) {
     });
 });
 
-// Delete the Employee with the given ID
+// Delete the companie with the given ID // and deletes all employees in company
 router.delete('/:id', function(req, res, next) {
     var id = req.params.id;
     Company.findOneAndDelete({_id: id}, function(err, company) {
@@ -165,17 +165,31 @@ router.delete('/:id', function(req, res, next) {
         if (company == null) {
             return res.status(404).json({"message": "Company not found"});
         }
+        for (var x = 0; x < company.employees.length; x++ ) {
+            Employee.findOneAndDelete({_id: company.employees[x]}, function(err, employee) {
+                if (err) { return next(err); }
+                if (employee == null) {
+                    return res.status(201).json({"message": "OK: No employees to delete"});
+                }
+            });
+        }
         res.json(company);
     });
 });
 
-// Delete all employees
+// Delete all companies
 router.delete('/', function(req, res, next) {
     Company.deleteMany({}, function(err, company) {
         if (err) { return next(err); }
         if (company == null) {
             return res.status(404).json({"message": "Company not found"});
         }
+        Employee.deleteMany({}, function(err, employee) {
+            if (err) { return next(err); }
+            if (employee == null) {
+                return res.status(201).json({"message": "OK: No employees to delete"});
+            }
+        });
         res.json(company);
     });
 });

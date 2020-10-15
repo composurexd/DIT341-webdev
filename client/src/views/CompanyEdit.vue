@@ -10,8 +10,7 @@
         <input type="text" id="userName" name="userName" :value= companyObject.userName><br><br>
         <label for="userPass">Password:</label>
         <input type="text" id="userPass" name="userPass" :value= companyObject.userPass><br><br>
-        <label for="country">Country</label>
-        <button @click="cancel()">Cancel</button>
+        <button @click="cancel()">Cancel</button> |
         <button @click="saveCompany()">saveCompany</button>
       </div>
   </b-list-group>

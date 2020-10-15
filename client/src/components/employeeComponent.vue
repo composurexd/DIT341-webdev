@@ -15,7 +15,7 @@
                 <b-col>
                     Trips: {{employee.trips}}
                 </b-col>
-                <button @click="editEmployee(employee)">Edit</button>
+                <button @click="editEmployee(employee)">Edit</button> |
                 <button @click="deleteEmployee(employee)">Delete</button>
             </b-row>
         </b-container>
@@ -23,8 +23,6 @@
 </template>
 
 <script>
-// import { Api } from '@/Api'
-
 export default {
   name: 'aEmployee',
   props: ['employee'],
