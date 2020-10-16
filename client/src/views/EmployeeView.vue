@@ -2,9 +2,9 @@
   <b-list-group>
     <div>
       <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-      <button @click="newEmployee()">Create Employee</button> |
-      <button @click="deleteAllEmpoyees()">Delete All</button> |
-      <button @click="backToCompanyView()">Back</button>
+      <button class= "headButSize" @click="newEmployee()">Create Employee</button> |
+      <button class= "headButSize delBut" @click="deleteAllEmpoyees()">Delete All</button> |
+      <button class= "headButSize" @click="backToCompanyView()">Back to Companies</button>
       <li v-for='employee in employees'
         :key='employee._id'>
           <aEmployee :employee='employee' @delete-employee="deleteSingleEmployee" />
@@ -33,7 +33,7 @@ export default {
     this.getEmployees()
   },
   methods: {
-    // get employees from a cirten company
+    // get employees from a cirten company - this is M2.3b - get syntax is different as the employee returns the list of employees in a company, instead of the company returning the list of employees
     getEmployees() {
       this.employees = []
       console.log(this.companyObject)

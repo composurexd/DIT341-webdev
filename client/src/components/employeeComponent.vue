@@ -3,20 +3,20 @@
         <b-container>
             <b-row>
                 <b-col>
-                    Name: {{employee.fname}} {{employee.lname}}
+                    Name: <br> {{employee.fname}} {{employee.lname}}
                 </b-col>
 
                 <b-col>
-                    User Name: {{employee.userName}}
+                    User Name: <br> {{employee.userName}}
                 </b-col>
                 <b-col>
-                    Password: {{employee.userPass}}
+                    Password: <br> {{employee.userPass}}
                 </b-col>
                 <b-col>
-                    Trips: {{employee.trips}}
+                    Number of Trips: <br> {{employee.trips.length}}
                 </b-col>
-                <button @click="editEmployee(employee)">Edit</button> |
-                <button @click="deleteEmployee(employee)">Delete</button>
+                <button @click="editEmployee(employee)">Edit</button>
+                <button class="delBut" @click="deleteEmployee(employee)">Delete</button>
             </b-row>
         </b-container>
     </b-list-group-item>

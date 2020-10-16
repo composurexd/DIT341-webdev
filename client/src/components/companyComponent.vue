@@ -1,31 +1,26 @@
 <template>
-    <b-list-group-item>
-        <b-container>
-            <b-row>
-                <b-col>
-                    Name: {{company.name}}
-                </b-col>
-                <b-col>
-                    Location: {{company.location}}
-                </b-col>
-                <b-col>
-                    User Name: {{company.userName}}
-                </b-col>
-                <b-col>
-                    Password: {{company.userPass}}
-                </b-col>
-                <b-col>
-                    Employees: {{company.employees}}
-                </b-col>
-                <b-col>
-                    Trips: {{company.trips}}
-                </b-col>
-                <button @click="editCompany(company)">Edit</button>
-                <button @click="showEmployees(company)">View Employees</button><!--send emit back to delete from companyview-->
-                <button @click="deleteCompany(company)">Delete</button>
-            </b-row>
-        </b-container>
-    </b-list-group-item>
+  <b-list-group-item class="listItem">
+    <b-row>
+      <b-col>
+        Name: <br> {{company.name}}
+      </b-col>
+      <b-col>
+        Location: <br> {{company.location}}
+      </b-col>
+      <b-col>
+        User Name: <br> {{company.userName}}
+      </b-col>
+      <b-col>
+        Password: <br> {{company.userPass}}
+      </b-col>
+      <b-col>
+        Number of Employees: <br> {{company.employees.length}}
+      </b-col>
+        <button class= "editDeleteBut" @click="editCompany(company)">Edit</button>
+        <button class= "infoEBut" @click="showEmployees(company)">View Employees</button><!--send emit back to; delete method from companyView-->
+        <button class="editDeleteBut delBut" @click="deleteCompany(company)">Delete</button>
+    </b-row>
+  </b-list-group-item>
 </template>
 
 <script>
@@ -40,29 +35,9 @@ export default {
 
   methods: {
     deleteCompany(company) {
-      // this.$root.$emit('deleteSingleEmployee', employee)
       console.log('TRYING TO PASS COMPANY: ')
-      // console.log(employee)
       this.$emit('delete-company', company)
     },
-    // deleteCompany(company) {
-    //   for (var x = 0; x < company.employees.length; x++) {
-    //     Api.delete('/employees/' + company.employees[x])
-    //      .then(response => {
-    //      console.log(response.data)
-    //   })
-    //  .catch(error => {
-    //    console.log(error)
-    //  })
-    // }
-    //  Api.delete('/companies/' + company._id)
-    //    .then(response => {
-    //      console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
-    //    })
-    //    .catch(error => {
-    //      console.log(error)
-    //    })
-    // },
     editCompany(company) {
       this.$router.push({ name: 'companyEdit', params: { companyObject: company } })
     },
@@ -75,4 +50,15 @@ export default {
 </script>
 
 <style scoped>
+button.infoEBut {
+  width: 140px;
+  height: 50px;
+}
+button.editDeleteBut {
+  width: 64px;
+  height: 50px
+}
+.listItem {
+  min-height:100px
+}
 </style>

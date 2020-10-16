@@ -2,9 +2,9 @@
   <b-list-group>
       <div>
         <h1> THIS IS THE TABLE OF COMPANIES</h1>
-        <button @click="newCompany()">New Company</button>
+        <button class = "headButSize" @click="newCompany()">New Company</button>
         |
-        <button @click="deleteAllCompanies()">Delete All</button>
+        <button class="delBut headButSize" @click="deleteAllCompanies()">Delete All</button>
         <li v-for='company in companies' :key='company._id'>
             <aCompany :company='company' @delete-company="deleteSingleCompany" />
         </li>
@@ -73,6 +73,26 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+button {
+  background: dimgrey;
+  color: whitesmoke;
+}
+button:hover {
+  background: white;
+  color: dimgrey;
+}
+button.delBut:hover {
+  background: red;
+  color: black;
+  font:bolder;
+}
+button.headButSize {
+  width: 160px;
+  height: 2000;
+}
+h1 {
+  color:darkgreen;
+  font-weight:10000
+}
 </style>
