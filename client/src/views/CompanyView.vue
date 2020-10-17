@@ -2,7 +2,7 @@
   <b-list-group>
       <div>
         <h1> THIS IS THE TABLE OF COMPANIES</h1>
-        <button class = "headButSize" @click="newCompany()">New Company</button>
+        <button class = "confirmBut headButSize" @click="newCompany()">New Company</button>
         |
         <button class="delBut headButSize" @click="deleteAllCompanies()">Delete All</button>
         <li v-for='company in companies' :key='company._id'>
@@ -74,25 +74,51 @@ export default {
 </script>
 
 <style>
-button {
+button { /*element selector*/
   background: dimgrey;
   color: whitesmoke;
 }
-button:hover {
-  background: white;
-  color: dimgrey;
+h1 { /*element selector*/
+  color:darkgreen;
 }
-button.delBut:hover {
-  background: red;
-  color: black;
-  font:bolder;
-}
-button.headButSize {
+.headButSize { /*class selector*/
   width: 160px;
   height: 2000;
 }
-h1 {
-  color:darkgreen;
-  font-weight:10000
+button:hover { /*class selector*/
+  background: white;
+  color: black;
+}
+.delBut:hover { /*class selector*/
+  background: darkred;
+  color: white;
+}
+.confirmBut:hover{ /*class selector*/
+  background: darkgreen;
+  color: white;
+}
+.backBut:hover{ /*class selector*/
+  background: yellow;
+  color: black;
+}
+/*#id calls for compnent view-change buttons (view Employees)*/
+#toEmployeeBut:hover { /*id selector*/
+  background: coral;
+  color: black;
+}
+#toTripsBut:hover { /*id selector*/
+  background: darkblue;
+  color: white;
+}
+.componentInfoBut { /*class selector*/ /*component view next page (company -> employee) */
+  width: 140px;
+  height: 50px;
+}
+.componentEditDeleteBut { /*class selector*/ /*component edit/delete buttons */
+  width: 64px;
+  height: 50px
+}
+.componentListItem { /*class selector*/ /*component list item row*/
+  min-height:100px
 }
 </style>

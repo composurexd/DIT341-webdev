@@ -2,9 +2,9 @@
   <b-list-group>
     <div>
       <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
-      <button class= "headButSize" @click="newEmployee()">Create Employee</button> |
+      <button class= "headButSize confirmBut" @click="newEmployee()">Create Employee</button> |
       <button class= "headButSize delBut" @click="deleteAllEmpoyees()">Delete All</button> |
-      <button class= "headButSize" @click="backToCompanyView()">Back to Companies</button>
+      <button class= "headButSize backBut" @click="backToCompanyView()">Back to Companies</button>
       <li v-for='employee in employees'
         :key='employee._id'>
           <aEmployee :employee='employee' @delete-employee="deleteSingleEmployee" />
@@ -84,7 +84,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+h1 { /*element selector*/
   color:coral
   }
 @media (max-width: 600px) {

@@ -1,24 +1,23 @@
 <template>
     <b-list-group-item>
-        <b-container>
-            <b-row>
-                <b-col>
-                    Name: <br> {{employee.fname}} {{employee.lname}}
-                </b-col>
+        <b-row>
+            <b-col>
+                Name: <br> {{employee.fname}} {{employee.lname}}
+            </b-col>
 
-                <b-col>
-                    User Name: <br> {{employee.userName}}
-                </b-col>
-                <b-col>
-                    Password: <br> {{employee.userPass}}
-                </b-col>
-                <b-col>
-                    Number of Trips: <br> {{employee.trips.length}}
-                </b-col>
-                <button @click="editEmployee(employee)">Edit</button>
-                <button class="delBut" @click="deleteEmployee(employee)">Delete</button>
-            </b-row>
-        </b-container>
+            <b-col>
+                User Name: <br> {{employee.userName}}
+            </b-col>
+            <b-col>
+                Password: <br> {{employee.userPass}}
+            </b-col>
+            <b-col>
+                Number of Trips: <br> {{employee.trips.length}}
+            </b-col>
+            <button class="componentEditDeleteBut" @click="editEmployee(employee)">Edit</button>
+            <button class="componentInfoBut" id="toTripsBut" >View Trips</button>
+            <button class="componentEditDeleteBut delBut" @click="deleteEmployee(employee)">Delete</button>
+        </b-row>
     </b-list-group-item>
 </template>
 

@@ -12,8 +12,8 @@
         <input type="text" id="userPass" name="userPass" :value= employeeObject.userPass><br><br>
         <label for="company"> Company:</label>
         <input type="text" id="company" name="company" :value= this.companyObj.name disabled><br><br>
-        <button @click="cancel()">Cancel</button> |
-        <button @click="saveEmployee()">saveEmployee</button>
+        <button class="backBut" @click="cancel()">Cancel</button> |
+        <button class="confirmBut" @click="saveEmployee()">saveEmployee</button>
       </div>
   </b-list-group>
 </template>

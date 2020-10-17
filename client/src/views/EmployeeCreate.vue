@@ -17,8 +17,8 @@
                 {{ company.name }}
             </option>
         </select>
-        <button @click="cancel()">Cancel</button>
-        <button @click="saveEmployee()">saveEmployee</button>
+        <button class="backBut" @click="cancel()">Cancel</button>
+        <button class="confirmBut" @click="saveEmployee()">saveEmployee</button>
       </div>
   </b-list-group>
 </template>

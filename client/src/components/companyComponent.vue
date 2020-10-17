@@ -1,5 +1,5 @@
 <template>
-  <b-list-group-item class="listItem">
+  <b-list-group-item class="componentListItem">
     <b-row>
       <b-col>
         Name: <br> {{company.name}}
@@ -16,9 +16,9 @@
       <b-col>
         Number of Employees: <br> {{company.employees.length}}
       </b-col>
-        <button class= "editDeleteBut" @click="editCompany(company)">Edit</button>
-        <button class= "infoEBut" @click="showEmployees(company)">View Employees</button><!--send emit back to; delete method from companyView-->
-        <button class="editDeleteBut delBut" @click="deleteCompany(company)">Delete</button>
+        <button class= "componentEditDeleteBut" @click="editCompany(company)">Edit</button>
+        <button class= "componentInfoBut" id="toEmployeeBut" @click="showEmployees(company)">View Employees</button><!--send emit back to; delete method from companyView-->
+        <button class="componentEditDeleteBut delBut" @click="deleteCompany(company)">Delete</button>
     </b-row>
   </b-list-group-item>
 </template>
@@ -50,15 +50,4 @@ export default {
 </script>
 
 <style scoped>
-button.infoEBut {
-  width: 140px;
-  height: 50px;
-}
-button.editDeleteBut {
-  width: 64px;
-  height: 50px
-}
-.listItem {
-  min-height:100px
-}
 </style>

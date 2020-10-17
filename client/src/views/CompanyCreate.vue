@@ -10,8 +10,8 @@
         <input type="text" id="userName" name="userName"><br><br>
         <label for="userPass">Password:</label>
         <input type="text" id="userPass" name="userPass"><br><br>
-        <button @click="cancel()">Cancel</button> |
-        <button @click="saveCompany()">saveCompany</button>
+        <button class="backBut" @click="cancel()">Cancel</button> |
+        <button class="confirmBut" @click="saveCompany()">saveCompany</button>
       </div>
   </b-list-group>
 </template>
