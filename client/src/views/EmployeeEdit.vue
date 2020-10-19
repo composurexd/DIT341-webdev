@@ -40,7 +40,6 @@ export default {
     }
   },
   created() {
-    this.getCompanies()
     this.getCompany()
   },
   methods: {
@@ -67,14 +66,6 @@ export default {
       Api.get('/companies/' + this.employeeObject.companys).then(response => {
         this.companyObj = []
         this.companyObj = response.data
-      })
-    },
-    // get all companies into this.company array
-    getCompanies() {
-      this.companies = []
-      Api.get('/companies').then(response => {
-        this.companies = []
-        this.companies = response.data.companies
       })
     }
   }

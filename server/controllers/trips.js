@@ -30,7 +30,6 @@ router.post("/",function(req,res,next){
         trip.expenses.push(expense);
         trip.save();
         res.status(201).json(expense);
-        res.status(201);
     });
 });
 
@@ -64,6 +63,20 @@ router.get('/:id', function(req, res, next) {
             return res.status(404).json({"message": "Trip not found"});
         }
         res.json(trip);
+    });
+});
+// filter all trips which belong to a employee (returns trips[Object])
+router.get('/employees/:id', function(req, res, next) {
+    var eID = req.params.id; 
+    Trip.find(function(err, trips) {
+        if (err) { return next(err); }
+        var filteredTrips = [];
+        for (var x=0; x<trips.length;x++){
+            if(trips[x].employees == eID){ // === identical / == same (even if one string the other int)
+                filteredTrips.push(trips[x]);
+            }
+        }
+        res.status(200).json({"trips": filteredTrips});
     });
 });
 
@@ -126,6 +139,28 @@ router.delete('/', function(req, res, next) {
             return res.status(404).json({"message": "Trip not found"});
         }
         res.json(trip);
+    });
+});
+
+//DELETE expense from trip
+router.delete("/:tripID/expenses/:expenseID", function(req,res,next){
+    var tripID = req.params.tripID;
+    var expenseID = req.params.expenseID;
+    
+    Trip.findByIdAndUpdate(tripID, {$pull : {expenses : expenseID}}, function(err,trip){
+        if(err){return next(err);}
+        if(trip===null){
+            return res.status(404).json({"message":"trip not found"});
+        }   
+
+        Expense.findOneAndDelete({_id: expenseID},function(err,expense){
+            if(err){return next(err);}
+            if(expense===null){
+                return res.status(404).json({"message":"expense (in trip) not found "});
+            }
+            
+            res.json(expense);
+        });
     });
 });
 

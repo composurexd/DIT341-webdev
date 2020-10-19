@@ -15,7 +15,7 @@
                 Number of Trips: <br> {{employee.trips.length}}
             </b-col>
             <button class="componentEditDeleteBut" @click="editEmployee(employee)">Edit</button>
-            <button class="componentInfoBut" id="toTripsBut" >View Trips</button>
+            <button class="componentInfoBut" id="toTripsBut" @click="showTrips(employee)">View Trips</button>
             <button class="componentEditDeleteBut delBut" @click="deleteEmployee(employee)">Delete</button>
         </b-row>
     </b-list-group-item>
@@ -49,6 +49,9 @@ export default {
     },
     editEmployee(employee) {
       this.$router.push({ name: 'employeeEdit', params: { employeeObject: employee } }) // needs to pass company - or go over parent
+    },
+    showTrips(employee) {
+      this.$router.push({ name: 'tripView', params: { employeeObject: employee } })
     }
   }
 }

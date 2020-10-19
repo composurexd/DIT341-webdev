@@ -82,7 +82,7 @@ router.get('/:id', function(req, res, next) {
         res.json(company);
     });
 });
-
+//TODO WHY THE HELL DO WE HAVE TWO OF THESE?!
 //GET employee in company
 router.get("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;

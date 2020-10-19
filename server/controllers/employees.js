@@ -125,16 +125,14 @@ router.delete('/:id', function(req, res, next) {
         if (employee == null) {
             return res.status(404).json({"message": "Employee not found"});
         }
-        //Company.getById({_id: employee.companys[0]},function(err,company) {
-        //  if (err) { return next(err); }
-        //    if (company == null) {
-        //        return res.status(404).json({"message": "Employees Company not found"});
-        //    } 
-        //    for (var x=0; x < company.employees.length; x++){
-        //        if(company.employees[x] === employee.companys[0])
-        //            company.employees.split(x)
-        //    }
-        //});
+        for (var x = 0; x < employee.trips.length; x++ ) {
+            Trip.findOneAndDelete({_id: employee.trips[x]}, function(err, trip) {
+                if (err) { return next(err); }
+                if (trip == null) {
+                    return res.status(201).json({"message": "OK: No trip to delete"});
+                }
+            });
+        }
         res.json(employee);
     });
 });

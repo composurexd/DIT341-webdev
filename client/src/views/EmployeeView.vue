@@ -36,7 +36,6 @@ export default {
     // get employees from a cirten company - this is M2.3b - get syntax is different as the employee returns the list of employees in a company, instead of the company returning the list of employees
     getEmployees() {
       this.employees = []
-      console.log(this.companyObject)
       Api.get('/employees/companies/' + this.companyObject._id).then(response => {
         this.employees = []
         this.employees = response.data.employees
@@ -51,7 +50,6 @@ export default {
       for (var x = 0; x < this.employees.length; x++) {
         Api.delete('companies/' + this.companyObject._id + '/employees/' + this.employees[x]._id)
           .then(response => {
-            console.log(response.data)
           })
           .catch(error => {
             console.log(error)
@@ -64,7 +62,6 @@ export default {
     deleteSingleEmployee(employee) {
       Api.delete('companies/' + this.companyObject._id + '/employees/' + employee._id)
         .then(response => {
-          console.log(response.data)
         })
         .catch(error => {
           console.log(error)

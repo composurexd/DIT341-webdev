@@ -50,6 +50,24 @@ router.get('/:id', function(req, res, next) {
     });
 });
 
+// filter all expences which belong to a trip (returns expence[Object])
+router.get('/trips/:id', function(req, res, next) {
+    var tID = req.params.id; 
+    Expense.find(function(err, expenses) {
+        if (err) { return next(err); }
+        var filteredExpenses = [];
+        for (var x=0; x<expenses.length;x++){
+            // for(var y=0; y<trips.employees.length;y++){ // double loop because one trip could be inside multiple employees - AT LEAST COULD BE IN THE FUTURE
+                if(expenses[x].trips == tID){ // === identical / == same (even if one string the other int)
+                    filteredExpenses.push(expenses[x]);
+                }
+            // }
+        }
+        console.log("anything REALY!" + filteredExpenses + "fuk fuk")
+        res.status(200).json({"expenses": filteredExpenses});
+    });
+});
+
 router.put('/:id', function(req, res, next) {
     var id = req.params.id;
     Expense.findById(id, function(err, expense) {

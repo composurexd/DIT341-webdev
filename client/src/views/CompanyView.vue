@@ -110,6 +110,10 @@ button:hover { /*class selector*/
   background: darkblue;
   color: white;
 }
+#toExpensesBut:hover {
+  background:darkviolet;
+  color: white;
+}
 .componentInfoBut { /*class selector*/ /*component view next page (company -> employee) */
   width: 140px;
   height: 50px;

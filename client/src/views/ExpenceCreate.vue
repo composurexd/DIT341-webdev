@@ -1,0 +1,73 @@
+<template>
+  <b-list-group>
+      <div>
+        <h1> THIS IS THE EXPENSE CREATE PAGE</h1>
+        <label for="location">Location: </label>
+        <input type="text" id="location"><br><br>
+        <label for="price">Price: </label>
+        <input type="text" id="price"><br><br>
+        <label for="description">Description: </label>
+        <input type="text" id="description"><br><br>
+        <label for="date">Date: </label>
+        <input type="text" id="date"><br><br>
+        <button class="backBut" @click="cancel()">Cancel</button>
+        <button class="confirmBut" @click="saveExpence()">Save Expense</button>
+      </div>
+  </b-list-group>
+</template>
+
+<script>
+import { Api } from '@/Api'
+
+export default {
+  name: 'expenceCreate',
+  props: ['tripObj'],
+
+  data() {
+    return {
+      birdy: {
+        location: '',
+        description: '',
+        date: '',
+        price: '',
+        trips: ''
+      },
+      companyObj: []
+    }
+  },
+  created() {
+    // this.getCompany()
+  },
+  methods: {
+    saveExpence() {
+      this.birdy.location = document.getElementById('location').value // TODO: empty employees should not be createable??
+      this.birdy.description = document.getElementById('description').value
+      this.birdy.date = document.getElementById('date').value // TODO: make this a calander?
+      this.birdy.trips = this.tripObj
+      this.birdy.price = document.getElementById('price').value
+      console.log(this.tripObj)
+      Api.post('/trips/' + this.tripObj._id + '/expenses', this.birdy)
+        .then(response => {
+          this.$router.push({ name: 'expenceView', params: { tripObject: this.tripObj } })
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    },
+    cancel() {
+      this.$router.push({ name: 'expenceView', params: { tripObject: this.tripObject } })
+    }
+    /*
+    getCompany() {
+      console.log(this.employeeObj)
+      console.log('HOLLY MOLLY')
+      console.log(this.employeeObj.companys)
+      Api.get('/companies/' + this.employeeObj.companys[0]).then(response => {
+        this.companyObj = []
+        this.companyObj = response.data
+      })
+    },
+    */
+  }
+}
+</script>
