@@ -4,7 +4,7 @@
       <h1> THIS IS THE TABLE OF TRIPS</h1>
       <button class= "headButSize confirmBut" @click="newTrip()">Create Trip</button> |
       <button class= "headButSize delBut" @click="deleteAllTrips()">Delete All</button> |
-      <button class= "headButSize backBut" @click="backToEmployeeView()">Back to Employees</button>
+      <button class= "headButSize" id= "toEmployeeBut" @click="backToEmployeeView()">Back to Employees</button>
       <li v-for='trip in trips'
         :key='trip._id'>
           <aTrip :trip='trip' @delete-trip="deleteSingleTrip" @edit-trip="editSingleTrip" />
@@ -48,13 +48,32 @@ export default {
       this.$router.push({ name: 'tripCreate', params: { employeeObj: this.employeeObject } })
     },
     deleteAllTrips() {
-      console.log('DELETE ALL TRIPS')
+      for (var x = 0; x < this.trips.length; x++) {
+        Api.delete('employees/' + this.employeeObject._id + '/trips/' + this.trips[x]._id)
+          .then(response => {
+          })
+          .catch(error => {
+            console.log(error)
+          })
+      }
+      this.trips = []
     },
     deleteSingleTrip(trip) {
-      console.log('deleteSingleTrip')
+      Api.delete('employees/' + this.employeeObject._id + '/trips/' + trip._id)
+        .then(response => {
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      // delete single trip from array (aka visual/view)
+      for (var x = 0; x < this.trips.length; x++) {
+        if (trip === this.trips[x]) {
+          this.trips.splice(x, 1)
+        }
+      }
     },
     editSingleTrip(trip) {
-      console.log('editSingleTrip')
+      this.$router.push({ name: 'tripEdit', params: { employeeObj: this.employeeObject, tripObj: trip } })
     },
     backToEmployeeView() {
       this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } })

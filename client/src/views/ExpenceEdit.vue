@@ -1,7 +1,7 @@
 <template>
   <b-list-group>
       <div>
-        <h1> THIS IS THE EXPENSE CREATE PAGE</h1>
+        <h1> THIS IS THE EXPENSE EDIT PAGE</h1>
         <label for="location">Location: </label>
         <input type="text" id="location" :value= expense.location><br><br>
         <label for="price">Price: </label>
@@ -76,3 +76,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+h1 { /*element selector*/
+  color:darkviolet;
+  }
+</style>

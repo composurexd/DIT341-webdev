@@ -1,7 +1,7 @@
 <template>
   <b-list-group>
       <div>
-        <h1> THIS IS THE COMPANY Edit PAGE</h1>
+        <h1> THIS IS THE COMPANY EDIT PAGE</h1>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" :value= companyObject.name><br><br>
         <label for="location">Location:</label>
@@ -61,3 +61,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+h1 { /*element selector*/
+  color:darkgreen;
+}
+</style>

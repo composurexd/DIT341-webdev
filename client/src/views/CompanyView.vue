@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-      <div>
+      <div id="companyViewFont">
         <h1> THIS IS THE TABLE OF COMPANIES</h1>
         <button class = "confirmBut headButSize" @click="newCompany()">New Company</button>
         |
@@ -82,11 +82,11 @@ button { /*element selector*/
   color: whitesmoke;
 }
 h1 { /*element selector*/
-  color:darkgoldenrod;
+  color:darkgreen;
 }
 .headButSize { /*class selector*/
   width: 160px;
-  height: 2000;
+  height: 200;
 }
 button:hover { /*class selector*/
   background: white;
@@ -113,8 +113,12 @@ button:hover { /*class selector*/
   background: darkblue;
   color: white;
 }
-#toExpensesBut:hover {
+#toExpensesBut:hover { /*id selector*/
   background:darkviolet;
+  color: white;
+}
+#toCompanyBut:hover { /*id selector*/
+  background: darkgreen;
   color: white;
 }
 .componentInfoBut { /*class selector*/ /*component view next page (company -> employee) */

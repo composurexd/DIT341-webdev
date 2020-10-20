@@ -60,3 +60,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+h1 { /*element selector*/
+  color:darkgreen;
+}
+</style>

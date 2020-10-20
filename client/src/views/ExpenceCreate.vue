@@ -76,3 +76,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+h1 { /*element selector*/
+  color:darkviolet;
+  }
+</style>

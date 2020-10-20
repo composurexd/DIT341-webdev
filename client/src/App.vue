@@ -18,15 +18,17 @@
 </template>
 
 <style>
+.backgroundColor {/* class selector*/
+  background-color:wheat;
+}
 #app {
-  font-family: 'Architects Daughter', cursive;
+  font-family: Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color:darkgoldenrod;
 }
-.backgroundColor {/* class selector*/
-  background-color:wheat;
+#companyViewFont {
+  color: darkblue;
 }
 #nav {/* id selector */
   font-family: 'Lobster Two', cursive;

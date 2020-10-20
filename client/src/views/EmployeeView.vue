@@ -4,7 +4,7 @@
       <h1> THIS IS THE TABLE OF EMPLOYEES</h1>
       <button class= "headButSize confirmBut" @click="newEmployee()">Create Employee</button> |
       <button class= "headButSize delBut" @click="deleteAllEmpoyees()">Delete All</button> |
-      <button class= "headButSize backBut" @click="backToCompanyView()">Back to Companies</button>
+      <button class= "headButSize backBut" id='toCompanyBut' @click="backToCompanyView()">Back to Companies</button>
       <li v-for='employee in employees'
         :key='employee._id'>
           <aEmployee :employee='employee' @delete-employee="deleteSingleEmployee" />

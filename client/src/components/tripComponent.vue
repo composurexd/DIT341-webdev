@@ -11,9 +11,6 @@
                 Description: <br> {{trip.description}}
             </b-col>
             <b-col>
-                Date: <br> {{trip.date}}
-            </b-col>
-            <b-col>
                 Number of Expences: <br> {{trip.expenses.length}}
             </b-col>
             <button class="componentEditDeleteBut" @click="editTrip(trip)">Edit</button>

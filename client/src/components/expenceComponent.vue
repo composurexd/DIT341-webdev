@@ -10,9 +10,6 @@
             <b-col>
                 Description: <br> {{expense.description}}
             </b-col>
-            <b-col>
-                Date: <br> {{expense.date}}
-            </b-col>
             <button class="componentEditDeleteBut" @click="editExpense(expense)">Edit</button>
             <button class="componentEditDeleteBut delBut" @click="deleteExpense(expense)">Delete</button>
         </b-row>

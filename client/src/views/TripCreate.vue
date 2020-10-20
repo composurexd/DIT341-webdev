@@ -6,8 +6,6 @@
         <input type="text" id="destination"><br><br>
         <label for="budget">Budget: </label>
         <input type="text" id="budget"><br><br>
-        <label for="date">Date: </label>
-        <input type="text" id="date"><br><br>
         <label for="description">Description: </label>
         <input type="text" id="description"><br><br>
         <button class="backBut" @click="cancel()">Cancel</button>
@@ -79,3 +77,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+h1 { /*element selector*/
+  color:darkblue;
+  }
+</style>

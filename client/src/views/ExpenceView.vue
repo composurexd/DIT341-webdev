@@ -4,7 +4,7 @@
       <h1> THIS IS THE TABLE OF EXPENCES</h1>
       <button class= "headButSize confirmBut" @click="newExpence()">Create Expence</button> |
       <button class= "headButSize delBut" @click="deleteAllExpenses()">Delete All</button> |
-      <button class= "headButSize backBut" @click="backToTripView()">Back to Trips</button>
+      <button class= "headButSize backBut" id='toTripsBut' @click="backToTripView()">Back to Trips</button>
       <li v-for='expence in expences'
         :key='expence._id'>
           <aExpence :expense='expence' @delete-expense="deleteSingleExpense" @edit-expense="editSingleExpense" />

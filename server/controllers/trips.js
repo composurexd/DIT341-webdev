@@ -90,7 +90,6 @@ router.put('/:id', function(req, res, next) {
         trip.destination = req.body.destination;
         trip.location = req.body.location;
         trip.description = req.body.description;
-        trip.date = req.body.date;
         trip.budget = req.body.budget;
         trip.employees = req.body.employees;
         trip.expenses = req.body.expenses;
@@ -110,7 +109,6 @@ router.patch('/:id', function(req, res, next) {
         if (req.body.destination)     {trip.destination = req.body.destination;}
         if (req.body.location)     {trip.location = req.body.location;}
         if (req.body.description)     {trip.description = req.body.description;}
-        if (req.body.date)     {trip.date = req.body.date;}
         if (req.body.budget)     {trip.budget = req.body.budget;}
         if (req.body.employees)     {trip.employees = req.body.employees;}
         if (req.body.expenses)     {trip.expenses = req.body.expenses;}
