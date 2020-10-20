@@ -153,7 +153,7 @@ router.delete("/:tripID/expenses/:expenseID", function(req,res,next){
         Expense.findOneAndDelete({_id: expenseID},function(err,expense){
             if(err){return next(err);}
             if(expense===null){
-                return res.status(404).json({"message":"expense (in trip) not found "});
+                // return res.status(404).json({"message":"expense (in trip) not found "});
             }
             res.json(expense);
         });
