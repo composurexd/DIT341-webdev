@@ -694,6 +694,27 @@
 			"response": []
 		},
 		{
+			"name": "get companyByID employees ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/companies/{{company_ID}}/employees/{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"companies",
+						"{{company_ID}}",
+						"employees",
+						"{{employee_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "get companyByIDs employees",
 			"event": [
 				{
@@ -1976,6 +1997,27 @@
 					"path": [
 						"api",
 						"expenses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete companyByID employees ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/companies/{{company_ID}}/employees/{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"companies",
+						"{{company_ID}}",
+						"employees",
+						"{{employee_ID}}"
 					]
 				}
 			},
