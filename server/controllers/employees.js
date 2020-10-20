@@ -152,13 +152,13 @@ router.delete("/:employeeID/trips/:tripID", function(req,res,next){
     Employee.findByIdAndUpdate(employeeID, {$pull : {trips : tripID}}, function(err,employee){
         if(err){return next(err);}
         if(employee===null){
-            return res.status(404).json({"message":"employee not found"});
+            // return res.status(404).json({"message":"employee not found"});
         }   
 
         Trip.findOneAndDelete({_id: tripID},function(err,trip){
             if(err){return next(err);}
             if(trip===null){
-                return res.status(404).json({"message":"trip (in employee) not found "});
+                // return res.status(404).json({"message":"trip (in employee) not found "});
             }
             
             res.json(trip);
