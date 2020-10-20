@@ -51,21 +51,21 @@ export default {
   },
   methods: {
     saveEmployee() {
-      this.birdy.fname = document.getElementById('fname').value // TODO: empty employees should not be createable??
+      this.birdy.fname = document.getElementById('fname').value
       this.birdy.lname = document.getElementById('lname').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
       this.birdy.companys = this.companies[document.getElementById('optionbox').selectedIndex]
-      Api.post('/companies/' + this.companies[document.getElementById('optionbox').selectedIndex]._id + '/employees', this.birdy) // TODO: THIS NEEDS TO BECOME A PUT METHOD - SO EMPLOYEE IS DIRECTLY ADDED TO COMPANY
+      Api.post('/companies/' + this.companies[document.getElementById('optionbox').selectedIndex]._id + '/employees', this.birdy)
         .then(response => {
-          this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } }) // TODO: pass company back to view
+          this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } })
         })
         .catch(error => {
           console.log(error)
         })
     },
     cancel() {
-      this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } }) // TODO: needs to know what company it belongs to - pass companyObject from View -> Create
+      this.$router.push({ name: 'employeeView', params: { companyObject: this.companyObj } })
     },
     getCompanies() {
       this.companies = []

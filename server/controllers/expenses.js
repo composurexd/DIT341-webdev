@@ -11,7 +11,7 @@ router.post("/",function(req,res,next){
     var expense = new Expense(req.body);
     expense.save(function(err){
         if(err)
-            {return console.log(err);}
+            {return next(err);}
         res.status(201).json(expense);
     })
 
@@ -57,13 +57,10 @@ router.get('/trips/:id', function(req, res, next) {
         if (err) { return next(err); }
         var filteredExpenses = [];
         for (var x=0; x<expenses.length;x++){
-            // for(var y=0; y<trips.employees.length;y++){ // double loop because one trip could be inside multiple employees - AT LEAST COULD BE IN THE FUTURE
-                if(expenses[x].trips == tID){ // === identical / == same (even if one string the other int)
-                    filteredExpenses.push(expenses[x]);
-                }
-            // }
+            if(expenses[x].trips == tID){ // === identical / == same (even if one string the other int)
+                filteredExpenses.push(expenses[x]);
+            }
         }
-        console.log("anything REALY!" + filteredExpenses + "fuk fuk")
         res.status(200).json({"expenses": filteredExpenses});
     });
 });

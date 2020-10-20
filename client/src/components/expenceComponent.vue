@@ -28,8 +28,6 @@ export default {
 
   methods: {
     deleteExpense(expense) {
-      // this.$root.$emit('deleteSingleEmployee', employee)
-      console.log('TRYING TO PASS:')
       this.$emit('delete-expense', expense)
     },
     editExpense(expense) {

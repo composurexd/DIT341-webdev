@@ -33,7 +33,6 @@ export default {
     }
   },
   created() {
-    // this.getCompany()
   },
   methods: {
     saveTrip() {
@@ -41,7 +40,6 @@ export default {
       this.birdy.description = document.getElementById('description').value
       this.birdy.employees = this.employeeObj
       this.birdy.budget = document.getElementById('budget').value
-      console.log(this.tripObj)
       Api.patch('/trips/' + this.tripObj._id, this.birdy)
         .then(response => {
           this.$router.push({ name: 'tripView', params: { employeeObject: this.employeeObj } })

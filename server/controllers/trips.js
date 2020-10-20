@@ -12,7 +12,7 @@ router.post("/",function(req,res,next){
     var trip = new Trip(req.body);
     trip.save(function(err){
         if(err)
-            {return console.log(err);}
+            {return next(err);}
         res.status(201).json(trip);
     })
 });
@@ -149,27 +149,23 @@ router.delete("/:tripID/expenses/:expenseID", function(req,res,next){
         if(err){return next(err);}
         if(trip===null){
             return res.status(404).json({"message":"trip not found"});
-        }   
-
+        }
         Expense.findOneAndDelete({_id: expenseID},function(err,expense){
             if(err){return next(err);}
             if(expense===null){
                 return res.status(404).json({"message":"expense (in trip) not found "});
             }
-            
             res.json(expense);
         });
     });
 });
 
-router.post("/expenses", function(req, res, next) { //TODO: THIS IS A GET THAT SHOULD BE A POST
-  //  var id = req.params.id;
+router.post("/expenses", function(req, res, next) {
     Trip.findById(id).populate('expense').
     exec(function (err, trip) {
         if (err) return handleError(err);
         console.log("Expense of this trip is ${Trip.expense.description}",);
         res.json(trip);
-
     });
 });
 

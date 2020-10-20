@@ -40,7 +40,6 @@ export default {
       Api.get('/companies').then(response => {
         this.companies = []
         this.companies = response.data.companies
-        console.log(this.companies)
       })
     },
     // create new employee

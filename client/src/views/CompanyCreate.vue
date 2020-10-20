@@ -41,13 +41,13 @@ export default {
   },
   methods: {
     saveCompany() {
-      this.birdy.name = document.getElementById('name').value // TODO: empty employees should not be createable??
+      this.birdy.name = document.getElementById('name').value
       this.birdy.location = document.getElementById('location').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
-      Api.post('/companies', this.birdy) // TODO: THIS NEEDS TO BECOME A PUT METHOD - SO EMPLOYEE IS DIRECTLY ADDED TO COMPANY
+      Api.post('/companies', this.birdy)
         .then(response => {
-          console.log(response.data) // TODO: add proper error handling here and bellow
+          console.log(response.data)
           this.$router.push({ path: '/companyView' })
         })
         .catch(error => {

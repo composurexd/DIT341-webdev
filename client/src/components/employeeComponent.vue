@@ -32,19 +32,7 @@ export default {
   },
 
   methods: {
-    // deleteEmployee(employee) {
-    // Api.delete('companies/' + employee.companys + '/ employees /' + employee._id)
-    // .then(response => {
-    // console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
-    // })
-    // .catch(error => {
-    // console.log(error)
-    // })
-    // },this.$refs.modal.showModal();
     deleteEmployee(employee) {
-      // this.$root.$emit('deleteSingleEmployee', employee)
-      console.log('TRYING TO PASS: ')
-      // console.log(employee)
       this.$emit('delete-employee', employee)
     },
     editEmployee(employee) {

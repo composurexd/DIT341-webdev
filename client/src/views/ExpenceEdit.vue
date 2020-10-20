@@ -50,7 +50,6 @@ export default {
       this.birdy.date = document.getElementById('date').value // TODO: make this a calander?
       this.birdy.trips = this.tripObj
       this.birdy.price = document.getElementById('price').value
-      console.log(this.tripObj)
       Api.patch('/expenses/' + this.expense._id, this.birdy)
         .then(response => {
           this.$router.push({ name: 'expenceView', params: { tripObject: this.tripObj } }) // pass company back to view
@@ -62,17 +61,6 @@ export default {
     cancel() {
       this.$router.push({ name: 'expenceView', params: { tripObject: this.tripObj } })
     }
-    /*
-    getCompany() {
-      console.log(this.employeeObj)
-      console.log('HOLLY MOLLY')
-      console.log(this.employeeObj.companys)
-      Api.get('/companies/' + this.employeeObj.companys[0]).then(response => {
-        this.companyObj = []
-        this.companyObj = response.data
-      })
-    },
-    */
   }
 }
 </script>

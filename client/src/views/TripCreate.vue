@@ -42,13 +42,9 @@ export default {
     this.getCompany()
   },
   methods: {
-    // TODO: THIS DOES NOT WORK: 1. trips are not always saved---who knows why?! trips are added to the employee though, but they are not saved as trips
-    //                           2. trips are not deleted when employee is deleted...
-    //                           3. trips that have nothing inside them are not created, although they should be, maybe DATE?!
     saveTrip() {
-      this.birdy.destination = document.getElementById('destination').value // TODO: empty employees should not be createable??
+      this.birdy.destination = document.getElementById('destination').value
       this.birdy.description = document.getElementById('description').value
-      // this.birdy.date = document.getElementById('date').value //TODO: make this a calander?
       this.birdy.employees = this.employeeObj
       this.birdy.budget = document.getElementById('budget').value
       Api.post('/employees/' + this.employeeObj._id + '/trips', this.birdy)
@@ -63,16 +59,10 @@ export default {
       this.$router.push({ name: 'tripView', params: { employeeObject: this.employeeObj } })
     },
     getCompany() {
-      console.log(this.employeeObj)
-      console.log('HOLLY MOLLY')
-      console.log(this.employeeObj.companys)
       Api.get('/companies/' + this.employeeObj.companys[0]).then(response => {
         this.companyObj = []
         this.companyObj = response.data
       })
-    },
-    test() {
-      console.log(this.employeeObj)
     }
   }
 }

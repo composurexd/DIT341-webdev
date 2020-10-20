@@ -36,13 +36,12 @@ export default {
     this.getEmployees()
   },
   methods: {
-    // get employees from a cirten company - this is M2.3b - get syntax is different as the employee returns the list of employees in a company, instead of the company returning the list of employees
     getEmployees() {
       this.employees = []
+      // get employees from a cirten company - this is M2.3b - get syntax is different as the employee returns the list of employees in a company, instead of the company returning the list of employees
       Api.get('/employees/companies/' + this.companyObject._id).then(response => {
         this.employees = []
         this.employees = response.data.employees
-        console.log(this.employees)
       })
     },
     newEmployee() {
@@ -58,7 +57,6 @@ export default {
             console.log(error)
           })
       }
-      this.companyObject.employees = [] // TODO: this is a temporary solution - this needs to happen in backend hopefully!
       this.employees = []
     },
     // delete employee - this is triggered by component and emited to this method to allow responsive updateing

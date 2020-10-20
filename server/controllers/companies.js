@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 const express = require("express");
 const Company = require("../models/company");
 const Employee= require("../models/employee");
-const Trip    = require("../models/trip");
 
 const router = new express.Router();
 
@@ -12,8 +11,7 @@ const router = new express.Router();
 router.post("/",function(req,res,next){
     var company = new Company(req.body);
     company.save(function(err){
-        if(err)
-            {return console.log(err);}
+        if(err) {return next(err);}
         res.status(201).json(company);
     })
 
@@ -34,23 +32,7 @@ router.post('/:id/employees', function(req, res, next){
     });
 });
 
-router.post('/:id/trips', function(req, res, next){
-    var id = req.params.id;
-    Company.findById(id).populate('trip').exec(function(err, company){
-        if (err) { return next(err); }
-        if (company === null) {
-            return res.status(404).json({'message': 'Company not found'});
-        };
-        var trip = new Trip(req.body);
-        trip.save();
-        company.trips.push(trip);
-        company.save();
-        res.status(201).json(trip);
-    });
-});
-
-
-//get company/employees (M1, 3b) //DOUBLE CHECK END POINT IS ALWAYS PLURAL
+//get company/employees (M1, 3b)
 router.get("/:id/employees",function(req,res,next){
     var id = req.params.id;
     Company.findById(id, function(err,company){
@@ -95,7 +77,6 @@ router.get("/:companyID/employees/:employeeID", function(req,res,next){
         Employee.findById(emplID,function(err,employee){
             if(err){return next(err);}
             if(employee===null){
-                //if employee.companies is equal to compID
                 return res.status(404).json({"message":"Employee (in company) not found "});
             }
             res.json(employee);

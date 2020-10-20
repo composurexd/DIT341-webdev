@@ -12,7 +12,7 @@ router.post("/",function(req,res,next){
     var employee = new Employee(req.body);
     employee.save(function(err){
         if(err)
-            {return console.log(err);}
+            {return next(err);}
         res.status(201).json(employee);
     })
 
@@ -56,7 +56,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:id', function(req, res, next) {
-    //var id = req.params.id;
     Employee.findById(req.params.id, function(err, employee) {
         if (err) { return next(err); }
         if (employee == null) {
@@ -69,7 +68,6 @@ router.get('/:id', function(req, res, next) {
 // filter all employees which belong to a company (returns employee[Object])
 router.get('/companies/:id', function(req, res, next) {
     var cID = req.params.id; 
-    console.log(cID)
     Employee.find(function(err, employees) {
         if (err) { return next(err); }
         var filteredEmployees = [];
@@ -77,7 +75,6 @@ router.get('/companies/:id', function(req, res, next) {
             if(employees[x].companys == cID) // === identical / == same (even if one string the other int)
             filteredEmployees.push(employees[x]);
         }
-        console.log("anything REALY!")
         res.status(200).json({"employees": filteredEmployees});
     });
 });
@@ -93,7 +90,6 @@ router.put('/:id', function(req, res, next) {
         employee.lname = req.body.lname;
         employee.userName = req.body.userName;
         employee.userPass = req.body.userPass;
-        // employee.company = req.body.company;
         employee.save();
         res.json(employee);
     });

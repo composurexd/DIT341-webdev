@@ -39,19 +39,15 @@ export default {
   methods: {
     getExpences() {
       this.expences = []
-      console.log(this.tripObject._id)
       Api.get('/expenses/trips/' + this.tripObject._id).then(response => {
         this.expences = []
         this.expences = response.data.expenses
-        console.log('expenses are: ')
-        console.log(this.expences)
       })
     },
     newExpence() {
       this.$router.push({ name: 'expenceCreate', params: { tripObj: this.tripObject } })
     },
     deleteAllExpenses() {
-      console.log('DELETE ALL Expences')
       for (var x = 0; x < this.expences.length; x++) {
         Api.delete('trips/' + this.tripObject._id + '/expenses/' + this.expences[x]._id)
           .then(response => {
@@ -64,7 +60,6 @@ export default {
       this.expences = []
     },
     deleteSingleExpense(expense) {
-      console.log('deleteSingleExpence')
       Api.delete('trips/' + this.tripObject._id + '/expenses/' + expense._id)
         .then(response => {
         })

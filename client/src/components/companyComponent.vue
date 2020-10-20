@@ -35,7 +35,6 @@ export default {
 
   methods: {
     deleteCompany(company) {
-      console.log('TRYING TO PASS COMPANY: ')
       this.$emit('delete-company', company)
     },
     editCompany(company) {

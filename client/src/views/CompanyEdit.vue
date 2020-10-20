@@ -46,9 +46,9 @@ export default {
       this.birdy.location = document.getElementById('location').value
       this.birdy.userName = document.getElementById('userName').value
       this.birdy.userPass = document.getElementById('userPass').value
-      Api.put('/companies/' + this.companyObject._id, this.birdy)
+      Api.put('/companies/' + this.companyObject._id, this.birdy) // PUT METHOD
         .then(response => {
-          console.log(response.data) // TODO: add proper error handling here and bellow
+          console.log(response.data)
           this.$router.push({ path: '/CompanyView' })
         })
         .catch(error => {

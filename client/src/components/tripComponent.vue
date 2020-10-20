@@ -31,27 +31,13 @@ export default {
   },
 
   methods: {
-    // deleteEmployee(employee) {
-    // Api.delete('companies/' + employee.companys + '/ employees /' + employee._id)
-    // .then(response => {
-    // console.log(response.data) // THIS DOES NOT UPDATE THE VIEW - REFRESH TO SEE CHANGES
-    // })
-    // .catch(error => {
-    // console.log(error)
-    // })
-    // },this.$refs.modal.showModal();
     deleteTrip(trip) {
-      // this.$root.$emit('deleteSingleEmployee', employee)
-      console.log('TRYING TO PASS:')
       this.$emit('delete-trip', trip)
     },
     editTrip(trip) {
-      console.log('TRYING TO PASS:')
       this.$emit('edit-trip', trip)
-      // this.$router.push({ name: 'tripEdit', params: { employeeObject: this.employeeObject, tripObject: this.trip } }) // needs to pass employee - or go over parent
     },
     showExpences(trip) {
-      console.log('show expences')
       this.$router.push({ name: 'expenceView', params: { tripObject: trip } })
     }
   }
