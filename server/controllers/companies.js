@@ -64,7 +64,6 @@ router.get('/:id', function(req, res, next) {
         res.json(company);
     });
 });
-//TODO WHY THE HELL DO WE HAVE TWO OF THESE?!
 //GET employee in company
 router.get("/:companyID/employees/:employeeID", function(req,res,next){
     var compID = req.params.companyID;
@@ -94,13 +93,11 @@ router.delete("/:companyID/employees/:employeeID", function(req,res,next){
         if(company===null){
             return res.status(404).json({"message":"Company not found"});
         }   
-
         Employee.findOneAndDelete({_id: emplID},function(err,employee){
             if(err){return next(err);}
             if(employee===null){
                 return res.status(404).json({"message":"Employee (in company) not found "});
             }
-            
             res.json(employee);
         });
     });

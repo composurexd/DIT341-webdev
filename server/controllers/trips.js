@@ -160,20 +160,4 @@ router.delete("/:tripID/expenses/:expenseID", function(req,res,next){
     });
 });
 
-router.post("/expenses", function(req, res, next) {
-    Trip.findById(id).populate('expense').
-    exec(function (err, trip) {
-        if (err) return handleError(err);
-        console.log("Expense of this trip is ${Trip.expense.description}",);
-        res.json(trip);
-    });
-});
-
-
-
 module.exports = router;
-
-
-
-
-

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "4f57f8d7-8efb-437c-915a-33478ca0bf9e",
-		"name": "server Copy 2",
+		"_postman_id": "e10e6d04-a487-4df5-8ab4-4cfdab00413a",
+		"name": "server Copy 3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -11,7 +11,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "38aa4d0c-9eb3-4ebb-90dd-1910408b3eb5",
+						"id": "ec5f9f34-aa5f-4282-8bea-6ad1d3b062f1",
 						"exec": [
 							""
 						],
@@ -21,7 +21,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "313a1515-117b-43a5-a371-216832a3d61a",
+						"id": "67d30c16-5ec9-4991-84b0-dcec278001fc",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var companyID = jsonData._id;\r",
@@ -72,7 +72,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5d6da82f-cfc4-4765-97f0-e90b27693780",
+						"id": "e1c186ca-2bb3-4d3a-9620-6770a05895c0",
 						"exec": [
 							""
 						],
@@ -82,7 +82,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "864f263f-bc93-4c03-a592-e6de613a53b5",
+						"id": "1d1c7697-5915-464b-9b3e-4f0d55073575",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var employeeID = jsonData._id;\r",
@@ -133,7 +133,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9d65e600-ab86-4067-8f6e-53271eb6d399",
+						"id": "57b58857-73fd-423e-af6c-7b7a12c58938",
 						"exec": [
 							""
 						],
@@ -143,7 +143,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "49e6947a-e255-4c39-9fac-3a33cb60d584",
+						"id": "336bd528-2877-4732-a4f4-c7ba2e18c327",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var expenseID = jsonData._id;\r",
@@ -194,7 +194,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f8a36a3e-16c9-4246-a225-edaf144e589d",
+						"id": "e33eba34-a892-4441-84c7-227da3bdc671",
 						"exec": [
 							""
 						],
@@ -204,7 +204,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "53c9a668-b29e-4234-b4dd-5787763a30b7",
+						"id": "24fed8f0-407f-47f4-94e3-411c3b4a316c",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
 							"var tripID = jsonData._id;\r",
@@ -255,7 +255,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "823e4d13-50ce-4e42-a851-0f16ace23128",
+						"id": "e8038129-06ea-42c1-9d2e-37e917bcb1f7",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -307,7 +307,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d69200bc-5eb9-4fb0-adb5-3c323d995f37",
+						"id": "a16794f6-bb20-4b0a-8d2e-8d5f21b0eeeb",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -359,7 +359,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9f9ad038-8814-4787-a55b-681461f10973",
+						"id": "3bd74c9b-1b9a-4aa7-862f-1dbf9e8d12a1",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -411,7 +411,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ded40744-6837-471a-9965-caef8aefb4b3",
+						"id": "354c917a-dbb6-4eb6-ad34-6b83397e2919",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -463,7 +463,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c50d4dff-902c-4b05-b0d5-a8b62d115932",
+						"id": "e54569f0-3c50-4305-9eb7-81b683811938",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -522,7 +522,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f8cee3f6-5401-4c30-b404-292f19366217",
+						"id": "50d93b58-f8f9-40bb-9c96-1aea56952772",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -581,7 +581,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "47e37cbc-ce0a-4ce6-a947-07c07b42db6c",
+						"id": "108e5703-003f-44ee-b1aa-f0ba69402486",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -640,7 +640,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6c6017cc-feb2-4cca-b4d2-63e76e3ca927",
+						"id": "9f6f5859-4c74-435f-b93d-cb3ad6e41b2b",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -657,13 +657,11 @@
 				"method": "GET",
 				"header": [
 					{
-						"description": "fuk",
 						"key": "Accept",
 						"type": "text",
 						"value": "application/json"
 					},
 					{
-						"description": "us",
 						"key": "Content-Type",
 						"type": "text",
 						"value": "application/json"
@@ -694,21 +692,121 @@
 			"response": []
 		},
 		{
-			"name": "get companyByID employees ID",
+			"name": "get companyByID employeesByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44090b27-3692-4e65-a69f-6289e3531b7e",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "{{host}}/api/companies/{{company_ID}}/employees/{{employee_ID}}",
+					"raw": "{{host}}/api/companies/:{{company_ID}}/employees/:{{employee_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"companies",
-						"{{company_ID}}",
+						":{{company_ID}}",
 						"employees",
-						"{{employee_ID}}"
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						},
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get companyByID get employees as Objects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "80ce0b6a-b5ff-4209-89dd-01af4834526d",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/employees/companies/:{{company_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						"companies",
+						":{{company_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
 					]
 				}
 			},
@@ -720,7 +818,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a7833161-0b60-4107-825d-ba6ae5373ff2",
+						"id": "2bc1ab9c-c2e7-49ae-aba7-b9046ff4c684",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -754,15 +852,137 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/companies/{{company_ID}}/employees",
+					"raw": "{{host}}/api/companies/:{{company_ID}}/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
 						"companies",
-						"{{company_ID}}",
+						":{{company_ID}}",
 						"employees"
+					],
+					"variable": [
+						{
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get employeeByID get trips as Objects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "df20404f-76bc-42d8-9cc2-555385daade1",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/trips/employees/:{{employee_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trips",
+						"employees",
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get tripsByID get expenses as Objects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a3b7a361-28b7-4cb6-9dcc-5c636e2ebc9c",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/expenses/trips/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expenses",
+						"trips",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
 					]
 				}
 			},
@@ -774,7 +994,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4aa3ab89-18f7-4b15-83eb-ad3e7ce1af61",
+						"id": "b86152bf-d4d6-4ae2-879d-8b0ac2485bea",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -830,7 +1050,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3a65d28b-6e99-4f9e-96bf-6b2c18d3f577",
+						"id": "16db548d-9666-41d4-98fe-6decaf188717",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -886,7 +1106,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e445a213-2b26-4ac4-b8c3-47d68a938aff",
+						"id": "c5528faf-fdb8-4a5a-9e43-c1efee651a54",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -942,7 +1162,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "14cb2463-d0ab-4456-9c51-0c821c160e5d",
+						"id": "d4910f6d-fbc0-48ee-bc79-fc29977db22f",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -998,7 +1218,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1079c5c6-d598-4b80-8ef2-c11292a82294",
+						"id": "4a942fe6-3a70-493a-a346-9545e52937d9",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1054,7 +1274,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9b15cff1-258e-4570-a64b-63d4f9a06516",
+						"id": "15476ac8-550b-4d9b-981c-63ca81df91a6",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1110,7 +1330,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9ac592be-f3c0-4143-a42d-72e45d105564",
+						"id": "5c6f3ee5-6319-483b-8261-ee33acda4419",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1166,7 +1386,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b4971027-bd8a-418d-853d-ae2029ab1ad8",
+						"id": "5ab9a9b8-0b1a-49b0-913e-2c5b5c7edc84",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1222,11 +1442,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "5106b7a0-4ea0-4ebf-a719-29495b3d1607",
+						"id": "3f826c1a-bffc-49a7-ab8f-dc070dbda6d2",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var companyIDemployee = jsonData._id;\r",
-							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"var employeeID = jsonData._id;\r",
+							"pm.environment.set(\"employee_ID\", employeeID);\r",
 							"\r",
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(201);\r",
@@ -1283,11 +1503,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "af383bd6-2923-4666-83b1-1fc53b578296",
+						"id": "69df716f-6524-4a7d-aa54-17c74ed0bb7c",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var companyIDemployee = jsonData._id;\r",
-							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"var companyID = jsonData._id;\r",
+							"pm.environment.set(\"company_ID\", companyID);\r",
 							"\r",
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(201);\r",
@@ -1344,11 +1564,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2ae58c97-5309-4f30-bd1f-41865bd1eb14",
+						"id": "ef670848-abc0-4a46-bb6d-da0c5a229265",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var companyIDemployee = jsonData._id;\r",
-							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"var tripID = jsonData._id;\r",
+							"pm.environment.set(\"trip_ID\", tripID);\r",
 							"\r",
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(201);\r",
@@ -1405,11 +1625,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f853a6af-8b2e-482c-ad8d-95ddc0461546",
+						"id": "d455208b-88f1-4068-8143-f22ce953ee67",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var tripIDexpense = jsonData._id;\r",
-							"pm.environment.set(\"trip_IDexpense\", tripIDexpense);\r",
+							"var expenceID = jsonData._id;\r",
+							"pm.environment.set(\"expense_ID\", expenceID);\r",
 							"\r",
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(201);\r",
@@ -1466,11 +1686,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "38cf8ed7-024a-4d21-b3da-b7de98022e9e",
+						"id": "b8f24077-92a8-4a2b-9d9a-779a283d3237",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var companyIDemployee = jsonData._id;\r",
-							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"var employeeID = jsonData._id;\r",
+							"pm.environment.set(\"employee_ID\", employeeID);\r",
 							"\r",
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(201);\r",
@@ -1527,11 +1747,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7756c146-5753-4770-ab32-052028208937",
+						"id": "6afc4c45-963c-479a-b7b2-38eb2faae833",
 						"exec": [
 							"var jsonData = pm.response.json();\r",
-							"var companyIDemployee = jsonData._id;\r",
-							"pm.environment.set(\"company_IDemployee\", companyIDemployee);\r",
+							"var tripID = jsonData._id;\r",
+							"pm.environment.set(\"trip_ID\", tripID);\r",
 							"\r",
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(201);\r",
@@ -1588,7 +1808,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9d1df90e-2555-48d4-abdf-4d3f572e0bab",
+						"id": "34fc38ef-27d8-4bd5-8b38-fe5d6e7498ad",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1644,7 +1864,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a6267faf-e28f-4d86-a38f-72ed598e2784",
+						"id": "8b8c2382-c9c8-4942-b485-80960b08850c",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1700,7 +1920,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e7f367ec-445f-4a8d-8360-a54972c59a5b",
+						"id": "e533d6ed-c8ef-4874-8b16-cba042815a94",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1756,7 +1976,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b72c9b40-e407-4d92-b3f2-daf6d9723d24",
+						"id": "f1cf5851-cbbb-4fb5-9c28-6bf01360a3d2",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1812,7 +2032,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8f43d5b8-6069-44ad-89e9-aad831fd74f6",
+						"id": "41e063ac-7bd3-4390-8ad1-016fc28a2e54",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1861,7 +2081,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8f358a24-8fe5-48a8-bef1-698dfdc20497",
+						"id": "93f2fe75-f9be-4931-9de4-343cf3bce778",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1910,7 +2130,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1fbc95f5-8988-4bc1-9296-3771d2122ca5",
+						"id": "4a1cee7e-6019-44f3-b1b4-15bd337aae30",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -1959,7 +2179,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "2519c352-211c-47f5-a13e-5a1234beecbb",
+						"id": "1a9a9d9f-a584-456a-892a-b8d17acdf5ef",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2022,13 +2242,75 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "delete tripsByID expencesByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/trips/:{{trip_ID}}/expenses/:{{expense_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trips",
+						":{{trip_ID}}",
+						"expenses",
+						":{{expense_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						},
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete employeesByID tripsByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/employees/:{{employee_ID}}/trips/:{{trip_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"employees",
+						":{{employee_ID}}",
+						"trips",
+						":{{trip_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						},
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "ed52c696-72bc-4965-ab48-d0e63dc98fc2",
+				"id": "e56f7b53-83c5-4a9a-b62b-c1684d3ccb8e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -2038,7 +2320,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "689e308e-6eba-4bb7-8231-5d1b9196a01b",
+				"id": "337f4474-d154-4410-9d0a-8bc4fc558789",
 				"type": "text/javascript",
 				"exec": [
 					""
