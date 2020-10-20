@@ -6,67 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "post company",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "ec5f9f34-aa5f-4282-8bea-6ad1d3b062f1",
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "67d30c16-5ec9-4991-84b0-dcec278001fc",
-						"exec": [
-							"var jsonData = pm.response.json();\r",
-							"var companyID = jsonData._id;\r",
-							"pm.environment.set(\"company_ID\", companyID);\r",
-							"\r",
-							"pm.test(\"Correct status code\", function() {\r",
-							"    pm.response.to.have.status(201);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Valve\",\r\n    \"location\": \"Siatle\",\r\n    \"userName\": \"valve\",\r\n    \"userPass\": \"godGabe\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
-				},
-				"url": {
-					"raw": "{{host}}/api/companies",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"companies"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "post employee",
 			"event": [
 				{
@@ -244,6 +183,67 @@
 					"path": [
 						"api",
 						"trips"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post company",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ec5f9f34-aa5f-4282-8bea-6ad1d3b062f1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "67d30c16-5ec9-4991-84b0-dcec278001fc",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var companyID = jsonData._id;\r",
+							"pm.environment.set(\"company_ID\", companyID);\r",
+							"\r",
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Valve\",\r\n    \"location\": \"Siatle\",\r\n    \"userName\": \"valve\",\r\n    \"userPass\": \"godGabe\",\r\n    \"employees\": [],\r\n    \"trip\": []\r\n}"
+				},
+				"url": {
+					"raw": "{{host}}/api/companies",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"companies"
 					]
 				}
 			},
@@ -1803,118 +1803,6 @@
 			"response": []
 		},
 		{
-			"name": "delete companyByID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "34fc38ef-27d8-4bd5-8b38-fe5d6e7498ad",
-						"exec": [
-							"pm.test(\"Correct status code\", function() {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"description": "fuk",
-						"key": "Accept",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"description": "us",
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{host}}/api/companies/:{{company_ID}}",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"companies",
-						":{{company_ID}}"
-					],
-					"variable": [
-						{
-							"key": "{{company_ID}}",
-							"value": "{{company_ID}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete employeeByID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "8b8c2382-c9c8-4942-b485-80960b08850c",
-						"exec": [
-							"pm.test(\"Correct status code\", function() {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"description": "fuk",
-						"key": "Accept",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"description": "us",
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{host}}/api/employees/:{{employee_ID}}",
-					"host": [
-						"{{host}}"
-					],
-					"path": [
-						"api",
-						"employees",
-						":{{employee_ID}}"
-					],
-					"variable": [
-						{
-							"key": "{{employee_ID}}",
-							"value": "{{employee_ID}}"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "delete expenseByID",
 			"event": [
 				{
@@ -1965,6 +1853,86 @@
 							"key": "{{expense_ID}}",
 							"value": ""
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete tripsByID expencesByID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/api/trips/:{{trip_ID}}/expenses/:{{expense_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"trips",
+						":{{trip_ID}}",
+						"expenses",
+						":{{expense_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						},
+						{
+							"key": "{{expense_ID}}",
+							"value": "{{expense_ID}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete expenseALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a9a9d9f-a584-456a-892a-b8d17acdf5ef",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/expenses",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"expenses"
 					]
 				}
 			},
@@ -2027,98 +1995,31 @@
 			"response": []
 		},
 		{
-			"name": "delete companyALL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "41e063ac-7bd3-4390-8ad1-016fc28a2e54",
-						"exec": [
-							"pm.test(\"Correct status code\", function() {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
+			"name": "delete employeesByID tripsByID",
 			"request": {
 				"method": "DELETE",
-				"header": [
-					{
-						"description": "fuk",
-						"key": "Accept",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"description": "us",
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"header": [],
 				"url": {
-					"raw": "{{host}}/api/companies",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}/trips/:{{trip_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"companies"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete employeeALL",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "93f2fe75-f9be-4931-9de4-343cf3bce778",
-						"exec": [
-							"pm.test(\"Correct status code\", function() {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"description": "fuk",
-						"key": "Accept",
-						"type": "text",
-						"value": "application/json"
-					},
-					{
-						"description": "us",
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "{{host}}/api/employees",
-					"host": [
-						"{{host}}"
+						"employees",
+						":{{employee_ID}}",
+						"trips",
+						":{{trip_ID}}"
 					],
-					"path": [
-						"api",
-						"employees"
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						},
+						{
+							"key": "{{trip_ID}}",
+							"value": "{{trip_ID}}"
+						}
 					]
 				}
 			},
@@ -2174,12 +2075,12 @@
 			"response": []
 		},
 		{
-			"name": "delete expenseALL",
+			"name": "delete employeeByID",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "1a9a9d9f-a584-456a-892a-b8d17acdf5ef",
+						"id": "8b8c2382-c9c8-4942-b485-80960b08850c",
 						"exec": [
 							"pm.test(\"Correct status code\", function() {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -2210,13 +2111,20 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{host}}/api/expenses",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"expenses"
+						"employees",
+						":{{employee_ID}}"
+					],
+					"variable": [
+						{
+							"key": "{{employee_ID}}",
+							"value": "{{employee_ID}}"
+						}
 					]
 				}
 			},
@@ -2244,30 +2152,104 @@
 			"response": []
 		},
 		{
-			"name": "delete tripsByID expencesByID",
+			"name": "delete employeeALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "93f2fe75-f9be-4931-9de4-343cf3bce778",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "{{host}}/api/trips/:{{trip_ID}}/expenses/:{{expense_ID}}",
+					"raw": "{{host}}/api/employees",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"trips",
-						":{{trip_ID}}",
-						"expenses",
-						":{{expense_ID}}"
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete companyByID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "34fc38ef-27d8-4bd5-8b38-fe5d6e7498ad",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{host}}/api/companies/:{{company_ID}}",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"api",
+						"companies",
+						":{{company_ID}}"
 					],
 					"variable": [
 						{
-							"key": "{{trip_ID}}",
-							"value": "{{trip_ID}}"
-						},
-						{
-							"key": "{{expense_ID}}",
-							"value": "{{expense_ID}}"
+							"key": "{{company_ID}}",
+							"value": "{{company_ID}}"
 						}
 					]
 				}
@@ -2275,31 +2257,49 @@
 			"response": []
 		},
 		{
-			"name": "delete employeesByID tripsByID",
+			"name": "delete companyALL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41e063ac-7bd3-4390-8ad1-016fc28a2e54",
+						"exec": [
+							"pm.test(\"Correct status code\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"description": "fuk",
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"description": "us",
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "{{host}}/api/employees/:{{employee_ID}}/trips/:{{trip_ID}}",
+					"raw": "{{host}}/api/companies",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employees",
-						":{{employee_ID}}",
-						"trips",
-						":{{trip_ID}}"
-					],
-					"variable": [
-						{
-							"key": "{{employee_ID}}",
-							"value": "{{employee_ID}}"
-						},
-						{
-							"key": "{{trip_ID}}",
-							"value": "{{trip_ID}}"
-						}
+						"companies"
 					]
 				}
 			},

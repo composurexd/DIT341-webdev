@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
     .sort({name : 1})
     .exec(function(err, companies) {
         if (err) { return next(err); }
-        res.json({"companies": companies});
+        res.status(200).json({"companies": companies});
     
     })
 });
@@ -147,7 +147,7 @@ router.delete('/:id', function(req, res, next) {
             Employee.findOneAndDelete({_id: company.employees[x]}, function(err, employee) {
                 if (err) { return next(err); }
                 if (employee == null) {
-                    return res.status(201).json({"message": "OK: No employees to delete"});
+                    // return res.status(201).json({"message": "OK: No employees to delete"});
                 }
             });
         }
@@ -165,7 +165,7 @@ router.delete('/', function(req, res, next) {
         Employee.deleteMany({}, function(err, employee) {
             if (err) { return next(err); }
             if (employee == null) {
-                return res.status(201).json({"message": "OK: No employees to delete"});
+                // return res.status(201).json({"message": "OK: No employees to delete"});
             }
         });
         res.json(company);

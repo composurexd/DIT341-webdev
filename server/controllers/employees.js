@@ -125,7 +125,7 @@ router.delete('/:id', function(req, res, next) {
             Trip.findOneAndDelete({_id: employee.trips[x]}, function(err, trip) {
                 if (err) { return next(err); }
                 if (trip == null) {
-                    return res.status(201).json({"message": "OK: No trip to delete"});
+                   // return res.status(201).json({"message": "OK: No trip to delete"});
                 }
             });
         }
