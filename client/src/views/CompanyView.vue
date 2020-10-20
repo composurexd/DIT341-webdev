@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-      <div id="companyViewFont">
+      <div id="textColorCo">
         <h1> THIS IS THE TABLE OF COMPANIES</h1>
         <button class = "confirmBut headButSize" @click="newCompany()">New Company</button>
         |
@@ -75,60 +75,5 @@ export default {
 }
 </script>
 
-<style>
-button { /*element selector*/
-  background: dimgrey;
-  color: whitesmoke;
-}
-h1 { /*element selector*/
-  color:darkgreen;
-}
-.headButSize { /*class selector*/
-  width: 160px;
-  height: 200;
-}
-button:hover { /*class selector*/
-  background: white;
-  color: black;
-}
-.delBut:hover { /*class selector*/
-  background: darkred;
-  color: white;
-}
-.confirmBut:hover{ /*class selector*/
-  background: darkgreen;
-  color: white;
-}
-.backBut:hover{ /*class selector*/
-  background: yellow;
-  color: black;
-}
-/*#id calls for compnent view-change buttons (view Employees)*/
-#toEmployeeBut:hover { /*id selector*/
-  background: coral;
-  color: black;
-}
-#toTripsBut:hover { /*id selector*/
-  background: darkblue;
-  color: white;
-}
-#toExpensesBut:hover { /*id selector*/
-  background:darkviolet;
-  color: white;
-}
-#toCompanyBut:hover { /*id selector*/
-  background: darkgreen;
-  color: white;
-}
-.componentInfoBut { /*class selector*/ /*component view next page (company -> employee) */
-  width: 140px;
-  height: 50px;
-}
-.componentEditDeleteBut { /*class selector*/ /*component edit/delete buttons */
-  width: 64px;
-  height: 50px
-}
-.componentListItem { /*class selector*/ /*component list item row*/
-  min-height:100px
-}
+<style scoped src="@/components/CSS_components.css">
 </style>

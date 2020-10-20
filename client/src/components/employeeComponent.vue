@@ -46,3 +46,5 @@ export default {
   }
 }
 </script>
+<style scoped src="@/components/CSS_components.css">
+</style>

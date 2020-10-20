@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-    <div>
+    <div id="textColorEx">
       <h1> THIS IS THE TABLE OF EXPENCES</h1>
       <button class= "headButSize confirmBut" @click="newExpence()">Create Expence</button> |
       <button class= "headButSize delBut" @click="deleteAllExpenses()">Delete All</button> |
@@ -89,10 +89,7 @@ export default {
 }
 </script>
 
-<style scoped>
-h1 { /*element selector*/
-  color:darkviolet;
-  }
+<style scoped src="@/components/CSS_components.css">
 @media (max-width: 600px) {
   .detail {
     color: red;

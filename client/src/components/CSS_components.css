@@ -1,0 +1,68 @@
+button { /*element selector*/
+    background: steelblue;
+    color: whitesmoke;
+  }
+  .headButSize { /*class selector*/
+    width: 160px;
+    height: 2000;
+  }
+  button:hover { /*class selector*/
+    background: white;
+    color: black;
+  }
+  .delBut:hover { /*class selector*/
+    background: darkred;
+    color: white;
+  }
+  .confirmBut:hover{ /*class selector*/
+    background: darkgreen;
+    color: white;
+  }
+  .backBut:hover{ /*class selector*/
+    background: darkred;
+    color:white;
+  }
+  /*#id calls for compnent view-change buttons (view Employees)*/
+  #toCompanyBut:hover {
+    background: darkgreen;
+    color: whitesmoke;
+  }
+  #toEmployeeBut:hover { /*id selector*/
+    background: coral;
+    color: black;
+  }
+  #toTripsBut:hover { /*id selector*/
+    background: darkblue;
+    color: white;
+  }
+  #toExpensesBut:hover {
+    background:darkviolet;
+    color: white;
+  }
+  .componentInfoBut { /*class selector*/ /*component view next page (company -> employee) */
+    width: 140px;
+    height: 50px;
+  }
+  .componentEditDeleteBut { /*class selector*/ /*component edit/delete buttons */
+    width: 64px;
+    height: 50px
+  }
+  .componentListItem { /*class selector*/ /*component list item row*/
+    min-height:100px
+  }
+  /*css for company */
+  #textColorCo {
+      color: darkgreen;
+  }
+  /*css for employee */
+  #textColorEm {
+    color: coral;
+  }
+  /*css for trip */
+  #textColorTr {
+    color: darkblue;
+  }
+  /*css for expence */
+  #textColorEx {
+    color: darkviolet;
+  }

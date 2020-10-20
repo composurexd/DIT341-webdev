@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-      <div>
+      <div id="textColorCo">
         <h1> THIS IS THE COMPANY EDIT PAGE</h1>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" :value= companyObject.name><br><br>
@@ -61,8 +61,5 @@ export default {
   }
 }
 </script>
-<style scoped>
-h1 { /*element selector*/
-  color:darkgreen;
-}
+<style scoped src="@/components/CSS_components.css">
 </style>

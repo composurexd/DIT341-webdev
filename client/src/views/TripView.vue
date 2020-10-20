@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-    <div>
+    <div id="textColorTr">
       <h1> THIS IS THE TABLE OF TRIPS</h1>
       <button class= "headButSize confirmBut" @click="newTrip()">Create Trip</button> |
       <button class= "headButSize delBut" @click="deleteAllTrips()">Delete All</button> |
@@ -88,10 +88,7 @@ export default {
 }
 </script>
 
-<style scoped>
-h1 { /*element selector*/
-  color:darkblue;
-  }
+<style scoped src="@/components/CSS_components.css">
 @media (max-width: 600px) {
   .detail {
     color: red;

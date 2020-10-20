@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-      <div>
+      <div id="textColorEx">
         <h1> THIS IS THE EXPENSE EDIT PAGE</h1>
         <label for="location">Location: </label>
         <input type="text" id="location" :value= expense.location><br><br>
@@ -64,8 +64,5 @@ export default {
   }
 }
 </script>
-<style scoped>
-h1 { /*element selector*/
-  color:darkviolet;
-  }
+<style scoped src="@/components/CSS_components.css">
 </style>

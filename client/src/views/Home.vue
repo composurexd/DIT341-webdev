@@ -3,7 +3,6 @@
     <b-jumbotron class="margin " header="Track Your Expenses Here!" lead="Welcome to our Expenses Tracking System !">
       <a href="https://images.app.goo.gl/drMdC35ZtxrG16tLA">
       <img src="@/assets/receipts.png" alt="bunch of receipts"/></a>
-      <my-footer/>
       </b-jumbotron>
   </div>
 </template>
@@ -11,13 +10,10 @@
 <script>
 // @ is an alias to /src
 import { Api } from '@/Api'
-import myFooter from '@/components/tipsFooter.vue'
 
 export default {
   name: 'home',
-  components: {
-    myFooter
-  },
+
   data() {
     return {
       message: 'none'

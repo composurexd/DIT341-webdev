@@ -1,6 +1,6 @@
 <template>
   <b-list-group>
-      <div>
+      <div id="textColorTr">
         <h1> THIS IS THE TRIP CREATE PAGE</h1>
         <label for="destination">Destination: </label>
         <input type="text" id="destination"><br><br>
@@ -67,8 +67,5 @@ export default {
   }
 }
 </script>
-<style scoped>
-h1 { /*element selector*/
-  color:darkblue;
-  }
+<style scoped src="@/components/CSS_components.css">
 </style>
