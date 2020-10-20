@@ -10,18 +10,21 @@
           <aTrip :trip='trip' @delete-trip="deleteSingleTrip" @edit-trip="editSingleTrip" />
       </li>
     </div>
+    <myFooter/>
   </b-list-group>
 </template>
 
 <script>
 import aTrip from '@/components/tripComponent.vue'
 import { Api } from '@/Api.js'
+import myFooter from '@/components/footer.vue'
 
 export default {
   name: 'TripView',
   props: ['employeeObject'],
   components: {
-    aTrip
+    aTrip,
+    myFooter
   },
   data() {
     return {

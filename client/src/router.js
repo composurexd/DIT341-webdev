@@ -13,8 +13,6 @@ import ExpenceView from './views/ExpenceView.vue'
 import ExpenceCreate from './views/ExpenceCreate.vue'
 import ExpenceEdit from './views/ExpenceEdit.vue'
 
-import TripSearching from './views/TripSearching.vue'
-
 Vue.use(Router)
 
 export default new Router({
@@ -90,11 +88,6 @@ export default new Router({
       name: 'expenseEdit',
       component: ExpenceEdit,
       props: true
-    },
-    {
-      path: '/tripSearching',
-      name: 'tripSearching',
-      component: TripSearching
     }
   ]
 })

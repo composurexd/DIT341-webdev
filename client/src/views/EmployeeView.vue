@@ -10,18 +10,21 @@
           <aEmployee :employee='employee' @delete-employee="deleteSingleEmployee" />
       </li>
     </div>
+    <myFooter/>
   </b-list-group>
 </template>
 
 <script>
 import aEmployee from '@/components/employeeComponent.vue'
 import { Api } from '@/Api.js'
+import myFooter from '@/components/footer.vue'
 
 export default {
   name: 'EmployeeView',
   props: ['companyObject'],
   components: {
-    aEmployee
+    aEmployee,
+    myFooter
   },
 
   data() {

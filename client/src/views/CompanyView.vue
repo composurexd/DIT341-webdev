@@ -9,17 +9,20 @@
             <aCompany :company='company' @delete-company="deleteSingleCompany" />
         </li>
       </div>
+      <myFooter/>
   </b-list-group>
 </template>
 
 <script>
 import aCompany from '@/components/companyComponent.vue'
 import { Api } from '@/Api.js'
+import myFooter from '@/components/footer.vue'
 
 export default {
   name: 'CompanyView',
   components: {
-    aCompany
+    aCompany,
+    myFooter
   },
 
   data() {

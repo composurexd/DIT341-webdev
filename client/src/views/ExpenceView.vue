@@ -10,18 +10,21 @@
           <aExpence :expense='expence' @delete-expense="deleteSingleExpense" @edit-expense="editSingleExpense" />
       </li>
     </div>
+    <myFooter/>
   </b-list-group>
 </template>
 
 <script>
 import aExpence from '@/components/expenceComponent.vue'
 import { Api } from '@/Api.js'
+import myFooter from '@/components/footer.vue'
 
 export default {
   name: 'ExpenceView',
   props: ['tripObject'],
   components: {
-    aExpence
+    aExpence,
+    myFooter
   },
   data() {
     return {
