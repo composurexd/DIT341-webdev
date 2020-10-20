@@ -20,15 +20,20 @@
         <button class="backBut" @click="cancel()">Cancel</button>
         <button class="confirmBut" @click="saveEmployee()">saveEmployee</button>
       </div>
+      <myFooter1/>
   </b-list-group>
 </template>
 
 <script>
 import { Api } from '@/Api'
+import myFooter1 from '@/components/createFooter.vue'
 
 export default {
   name: 'employeeCreate',
   props: ['companyObj'],
+  components: {
+    myFooter1
+  },
   data() {
     return {
       birdy: {

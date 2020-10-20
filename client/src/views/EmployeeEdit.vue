@@ -15,16 +15,21 @@
         <button class="backBut" @click="cancel()">Cancel</button> |
         <button class="confirmBut" @click="saveEmployee()">saveEmployee</button>
       </div>
+      <myFooter2/>
   </b-list-group>
 </template>
 
 <script>
 import { Api } from '@/Api'
+import myFooter2 from '@/components/editFooter.vue'
 // <input type="submit" value="Submit"> <button @click="saveEmployee(employeeObject._id, fname.value, lname.value, userName.value, userPass.value)">saveEmployee</button>
 
 export default {
   name: 'employeeEdit',
   props: ['employeeObject'],
+  components: {
+    myFooter2
+  },
 
   data() {
     return {

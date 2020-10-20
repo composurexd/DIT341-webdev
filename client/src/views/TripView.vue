@@ -17,7 +17,7 @@
 <script>
 import aTrip from '@/components/tripComponent.vue'
 import { Api } from '@/Api.js'
-import myFooter from '@/components/footer.vue'
+import myFooter from '@/components/tipsFooter.vue'
 
 export default {
   name: 'TripView',

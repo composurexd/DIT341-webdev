@@ -13,15 +13,20 @@
         <button class="backBut" @click="cancel()">Cancel</button>
         <button class="confirmBut" @click="saveExpence()">Save Expense</button>
       </div>
+      <myFooter2/>
   </b-list-group>
 </template>
 
 <script>
 import { Api } from '@/Api'
+import myFooter2 from '@/components/editFooter.vue'
 
 export default {
   name: 'expenseEdit',
   props: ['tripObj', 'expense'],
+  components: {
+    myFooter2
+  },
 
   data() {
     return {

@@ -9,6 +9,8 @@
       <router-link to="/tripView">Trip View</router-link>
       |
       <router-link to="/expenceView">Expence View</router-link>
+      |
+      <img src="@/assets/threefarmers.jpg" alt="might be us"/>
     </div>
     <!-- Render the content of the current page view -->
     <router-view/>

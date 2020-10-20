@@ -16,7 +16,7 @@
 <script>
 import aCompany from '@/components/companyComponent.vue'
 import { Api } from '@/Api.js'
-import myFooter from '@/components/footer.vue'
+import myFooter from '@/components/tipsFooter.vue'
 
 export default {
   name: 'CompanyView',
@@ -82,7 +82,7 @@ button { /*element selector*/
   color: whitesmoke;
 }
 h1 { /*element selector*/
-  color:darkgreen;
+  color:darkgoldenrod;
 }
 .headButSize { /*class selector*/
   width: 160px;

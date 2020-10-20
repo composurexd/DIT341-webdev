@@ -1,7 +1,6 @@
 <template>
   <div>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap" rel="stylesheet">
-    <b-jumbotron class="margin" header="Track Your Expenses Here!" lead="Welcome to our Expenses Tracking System !">
+    <b-jumbotron class="margin " header="Track Your Expenses Here!" lead="Welcome to our Expenses Tracking System !">
       <a href="https://images.app.goo.gl/drMdC35ZtxrG16tLA">
       <img src="@/assets/receipts.png" alt="bunch of receipts"/></a>
       <my-footer/>
@@ -12,7 +11,8 @@
 <script>
 // @ is an alias to /src
 import { Api } from '@/Api'
-import myFooter from '@/components/footer.vue'
+import myFooter from '@/components/tipsFooter.vue'
+
 export default {
   name: 'home',
   components: {
