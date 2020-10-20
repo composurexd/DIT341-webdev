@@ -6,7 +6,7 @@
   border-color: darkblue;
   border-width: 2px;
   border-style:dashed;
-  margin: 20px 150px 100px 150px;
+  margin: 100px 10% 100px 10%;
 }
 .divBackgroundColor {
   background-color:wheat;
