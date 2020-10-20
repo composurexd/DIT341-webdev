@@ -1541,13 +1541,13 @@
 					"raw": "{\r\n    \"destination\": \"Malta\",\r\n    \"description\": \"Going to Malta to eat Pancakes\",\r\n    \"budget\": 250000,\r\n    \"employee\": [],\r\n    \"expense\": [],\r\n    \"date\": \"2020-09-18T00:23:41.695Z\"\r\n}"
 				},
 				"url": {
-					"raw": "{{host}}/api/employee/:{{employee_ID}}/trips",
+					"raw": "{{host}}/api/employees/:{{employee_ID}}/trips",
 					"host": [
 						"{{host}}"
 					],
 					"path": [
 						"api",
-						"employee",
+						"employees",
 						":{{employee_ID}}",
 						"trips"
 					],
